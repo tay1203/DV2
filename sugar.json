@@ -1,0 +1,117 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 200,
+    "height": 200,
+    "data": {
+    "url": "https://raw.githubusercontent.com/tay1203/Homework-Week10/refs/heads/main/nutrition.csv"
+  },
+  "params": [
+    {
+      "name": "Food",
+      "value": "Big Mac"
+    }
+  ],
+    "transform": [
+    { "filter": "datum.Food == Food" },
+    {
+        "calculate": "max(0, 36 - datum['Sugar (g)']) ",
+        "as": "Remaining Sugar"
+    },
+    {
+        "calculate": "datum['Sugar (g)'] / 36 * 100",
+        "as": "Percentage"
+    }
+    ],
+    "layer": [
+    {
+        "transform": [
+        {
+            "fold": ["Sugar (g)", "Remaining Sugar"],
+            "as": ["Category", "value"]
+        }
+        ],
+        "mark": {
+        "type": "arc",
+        "innerRadius": 70,
+        "tooltip": true
+        },
+        "encoding": {
+        "theta": {
+            "field": "value",
+            "type": "quantitative",
+            "sort": "descending"
+        },
+        "color": {
+            "field": "Category",
+            "type": "nominal",
+            "scale": {
+            "domain": ["Sugar (g)", "Remaining Sugar"],
+            "range": ["#C8102E", "#FFCC00"]
+            },
+            "legend": null
+        },
+        "order": { "field": "Category", "sort": "ascending" },
+        "tooltip": [
+            { "field": "Category", "type": "nominal" },
+            { "field": "value", "type": "quantitative", "format": ".2f" }
+        ]
+        }
+    },
+    {
+        "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 30,
+        "font": "Arial"
+        },
+        "encoding": {
+        "text": {
+            "field": "Percentage",
+            "type": "quantitative",
+            "format": ".0f"
+        },
+        "y": { "value": 80 }
+        }
+    },
+    {
+        "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 12,
+        "font": "Arial"
+        },
+        "encoding": {
+        "text": { "value": "of Daily" },
+        "y": { "value": 100 }
+        }
+    },
+    {
+        "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 12,
+        "font": "Arial"
+        },
+        "encoding": {
+        "text": { "value": "Recommended" },
+        "y": { "value": 115 }
+        }
+    },
+    {
+        "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 12,
+        "font": "Arial"
+        },
+        "encoding": {
+        "text": { "value": "Sugar" },
+        "y": { "value": 130 }
+        }
+    }
+    ]
+}

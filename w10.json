@@ -1,0 +1,69 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/tay1203/Homework-Week10/refs/heads/main/nutrition.csv"
+  },
+  "params": [
+    {
+      "name": "Food",
+      "value": "Big Mac"
+    }
+  ],
+  "transform": [
+    { "filter": { "param": "Food" } }
+  ],
+  "hconcat": [
+    {
+      "width": 600,
+      "height": 300,
+      "transform": [
+        { "filter": "datum.Food == Food" },
+        {
+          "fold": [
+            "Carbohydrate (g)",
+            "Protein (g)",
+            "Fat (g)",
+            "Salt (g)",
+            "Sugar (g)"
+          ],
+          "as": ["Nutrient", "Value"]
+        }
+      ],
+      "mark": {
+        "type": "bar",
+        "tooltip": true,
+        "color": "#FFCC00",
+        "stroke": "#C8102E",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "Value",
+          "type": "quantitative",
+          "title": "Amount (g)",
+          "axis": {
+            "labelColor": "#C8102E",
+            "titleColor": "#C8102E"
+          }
+        },
+        "y": {
+          "field": "Nutrient",
+          "type": "nominal",
+          "title": null,
+          "axis": {
+            "labelColor": "#C8102E"
+          }
+        },
+        "tooltip": [
+          { "field": "Nutrient", "type": "nominal" },
+          { "field": "Value", "type": "quantitative", "format": ".1f" }
+        ]
+      }
+    } 
+  ]
+}
+
+      
+    
+  
+

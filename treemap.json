@@ -1,0 +1,178 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Interactive hierarchical tree visualization of McDonald's menu",
+  "width": 300,
+  "height": 1000,
+  "padding": 5,
+  
+  "signals": [
+    {
+      "name": "labels", 
+      "value": true
+    },
+    {
+      "name": "layout", 
+      "value": "tidy"
+    },
+    {
+      "name": "links", 
+      "value": "diagonal"
+    },
+    {
+      "name": "separation", 
+      "value": true
+    },
+    {
+      "name": "Food",
+      "value": null,
+      "on": [
+        {
+          "events": "symbol:click",
+          "update": "datum.name",
+          "force": true
+        }
+      ]
+    },
+    {
+      "name": "hover",
+      "value": null,
+      "on": [
+        {
+          "events": "@nodes:mouseover",
+          "update": "datum"
+        },
+        {
+          "events": "@nodes:mouseout",
+          "update": "null"
+        }
+      ]
+    }
+  ],
+  
+  "data": [
+    {
+      "name": "tree",
+      "url": "https://raw.githubusercontent.com/tay1203/Homework-Week10/refs/heads/main/menu.json",
+      "transform": [
+        {
+          "type": "stratify",
+          "key": "id",
+          "parentKey": "parent"
+        },
+        {
+          "type": "tree",
+          "method": {"signal": "layout"},
+          "size": [{"signal": "height"}, {"signal": "width - 80"}],
+          "separation": {"signal": "separation"},
+          "as": ["y", "x", "depth", "children"]
+        }
+      ]
+    },
+    {
+      "name": "links",
+      "source": "tree",
+      "transform": [
+        { "type": "treelinks" },
+        {
+          "type": "linkpath",
+          "orient": "horizontal",
+          "shape": {"signal": "links"}
+        }
+      ]
+    }
+  ],
+  
+  "scales": [
+    {
+      "name": "color",
+      "type": "linear",
+      "range": {"scheme": "viridis"},
+      "domain": {"data": "tree", "field": "depth"},
+      "zero": true
+    }
+  ],
+  
+  "marks": [
+    {
+      "type": "path",
+      "from": {"data": "links"},
+      "encode": {
+        "enter": {
+          "strokeWidth": {"value": 1.5}
+        },
+        "update": {
+          "path": {"field": "path"},
+          "stroke": {"value": "#ddd"},
+          "strokeOpacity": {"value": 0.6}
+        },
+        "hover": {
+          "stroke": {"value": "#999"},
+          "strokeOpacity": {"value": 1}
+        }
+      }
+    },
+    {
+      "name": "nodes",
+      "type": "symbol",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "size": {"value": 180},
+          "stroke": {"value": "white"},
+          "strokeWidth": {"value": 2}
+        },
+        "update": {
+          "x": {"field": "x"},
+          "y": {"field": "y"},
+          "fill": {"scale": "color", "field": "depth"},
+          "cursor": {"value": "pointer"},
+          "tooltip": {
+            "signal": "datum.name + (datum.children ? ' (Category)' : ' (Item)')"
+          }
+        },
+        "hover": {
+          "size": {"value": 300},
+          "strokeWidth": {"value": 3}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "text": {"field": "name"},
+          "fontSize": {"value": 12},
+          "fontWeight": {"value": "600"},
+          "baseline": {"value": "middle"},
+          "font": {"value": "Arial"}
+        },
+        "update": {
+          "x": {"field": "x"},
+          "y": {"field": "y"},
+          "dx": {"signal": "datum.children ? -10 : 10"},
+          "align": {"signal": "datum.children ? 'right' : 'left'"},
+          "opacity": {"signal": "labels ? 1 : 0"},
+          "fill": {"value": "#333"}
+        },
+        "hover": {
+          "fill": {"value": "#000"},
+          "fontWeight": {"value": "bold"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {"value": 5},
+          "y": {"value": 20},
+          "fontSize": {"value": 14},
+          "fontWeight": {"value": "bold"},
+          "text": {"value": "McDonald's Menu Structure"},
+          "fill": {"value": "#333"}
+        }
+      }
+    }
+  ]
+}

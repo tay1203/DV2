@@ -1,0 +1,103 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 400,
+    "title": "McDonald's Revenue Over Time",
+    "data": {
+      "url": "https://raw.githubusercontent.com/tay1203/Homework-Week10/refs/heads/main/revenue.csv"
+    },
+    "layer": [
+      {
+        "mark": {"type": "area", "line": true},
+        "encoding": {
+          "x": {
+            "field": "Year",
+            "type": "temporal",
+            "title": "Year"
+          },
+          "y": {
+            "aggregate": "sum",
+            "field": "value",
+            "type": "quantitative",
+            "title": "Revenue (in millions USD)",
+            "stack": "zero"
+          },
+          "color": {
+            "field": "key",
+            "type": "nominal",
+            "scale": {
+              "domain": ["Company-operated sales", "Franchised revenues"],
+              "range": ["#FFC300", "#DAF7A6"]
+            },
+            "title": "Revenue Type"
+          }
+        },
+        "transform": [
+          {"fold": ["Company-operated sales", "Franchised revenues"]}
+        ]
+      },
+      {
+        "mark": {"type": "line", "color": "red"},
+        "encoding": {
+          "x": {"field": "Year", "type": "temporal"},
+          "y": {"field": "Total Revenue", "type": "quantitative"}
+        }
+      },
+      {
+        "mark": {"type": "rule", "color": "gray"},
+        "encoding": {
+          "x": {"field": "Year", "type": "temporal"}
+        },
+        "transform": [{"filter": {"param": "hover", "empty": false}}]
+      },
+      {
+        "mark": {"type": "circle", "opacity": 0},
+        "encoding": {
+          "x": {"field": "Year", "type": "temporal"},
+          "opacity": {"value": 0},
+          "tooltip": [
+            {"field": "Year", "type": "temporal", "title": "Year"},
+            {"field": "Company-operated sales", "type": "quantitative", "title": "Company-operated sales", "format": ",.0f"},
+            {"field": "Franchised revenues", "type": "quantitative", "title": "Franchised revenues", "format": ",.0f"},
+            {"field": "Total Revenue", "type": "quantitative", "title": "Total Revenue", "format": ",.0f"}
+          ]
+        },
+        "params": [{
+          "name": "hover",
+          "select": {
+            "type": "point",
+            "fields": ["Year"],
+            "nearest": true,
+            "on": "mouseover",
+            "clear": "mouseout"
+          }
+        }]
+      },
+      {
+        "mark": {"type": "circle", "size": 50},
+        "encoding": {
+          "x": {"field": "Year", "type": "temporal"},
+          "y": {"field": "value", "type": "quantitative"},
+          "color": {"field": "key", "type": "nominal"},
+          "opacity": {
+            "condition": {"param": "hover", "value": 1},
+            "value": 0
+          }
+        },
+        "transform": [
+          {"fold": ["Company-operated sales", "Franchised revenues"]}
+        ]
+      },
+      {
+        "mark": {"type": "circle", "size": 50, "color": "red"},
+        "encoding": {
+          "x": {"field": "Year", "type": "temporal"},
+          "y": {"field": "Total Revenue", "type": "quantitative"},
+          "opacity": {
+            "condition": {"param": "hover", "value": 1},
+            "value": 0
+          }
+        }
+      }
+    ]
+  }
