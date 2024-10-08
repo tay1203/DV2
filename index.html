@@ -19,11 +19,54 @@
 
 <body class="bg-yellow-400">
     <div class="w-11/12 m-auto ">
+        <div style="display: flex; flex-direction: column; gap: 20px; padding: 2px;">
+            <h1 class="text-4xl text-center m-2 p-2 pb-2 bg-slate-50">I'm Lovin It !</h1>
+            <div>
+                <h2 class="text-xl font-bold p-2 text-center">Mcdonald's Branched Worldwide (2024)</h2>
+            </div>
+            
+            <div class="relative w-[1280px] h-fit">
+                <!-- Map container -->
+                <div id="map" class="w-full h-full"></div>
+                <svg class="absolute top-0 left-0 w-full h-full pointer-events-none z-10">
+                    <line 
+                        x1="10%" y1="20%" 
+                        x2="25%" y2="20%" 
+                        stroke="lightgray" 
+                        stroke-width="1"
+                    />
+                </svg>
+                <svg class="absolute top-0 left-0 w-full h-full pointer-events-none z-10">
+                    <line 
+                        x1="81%" y1="20%" 
+                        x2="88%" y2="30%" 
+                        stroke="lightgray" 
+                        stroke-width="1"
+                    />
+                </svg>
+                <!-- <svg class="absolute top-0 left-0 w-full h-full pointer-events-none z-10">
+                    <line 
+                        x1="60%" y1="45%" 
+                        x2="72%" y2="76%" 
+                        stroke="lightgray" 
+                        stroke-width="1"
+                    />
+                </svg> -->
+                <!-- Annotation box -->
+                <div class="absolute top-[16%] left-8 bg-white p-3 shadow-sm z-20 max-w-[200px] text-xs border border-gray-200">
+                    United States of America, home to McDonald's, has the highest number of branches worldwide
+                </div>
+                <div class="absolute top-[28%] left-[85%] bg-white p-3 shadow-sm z-20 max-w-[160px] text-xs border border-gray-200">
+                    Japan has the largest number of outlets in Asia
+                </div>
+            </div>
+        <div id="area" class="w-full h-full"></div>
         <div id="tree-container"></div>
         <div id="nutrition-container"></div>
         <div id="calories-container"></div>
         <div id="sugar-container"></div>
         <div id="salt-container"></div>
+        </div>
     </div>
   
 </body>

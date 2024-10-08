@@ -16,7 +16,7 @@
     },
     {
       "name": "links", 
-      "value": "diagonal"
+      "value": "orthogonal"
     },
     {
       "name": "separation", 
@@ -52,7 +52,7 @@
   "data": [
     {
       "name": "tree",
-      "url": "https://raw.githubusercontent.com/tay1203/Homework-Week10/refs/heads/main/menu.json",
+      "url": "https://raw.githubusercontent.com/tay1203/DV2/refs/heads/main/menu.json",
       "transform": [
         {
           "type": "stratify",
@@ -158,19 +158,6 @@
         "hover": {
           "fill": {"value": "#000"},
           "fontWeight": {"value": "bold"}
-        }
-      }
-    },
-    {
-      "type": "text",
-      "encode": {
-        "enter": {
-          "x": {"value": 5},
-          "y": {"value": 20},
-          "fontSize": {"value": 14},
-          "fontWeight": {"value": "bold"},
-          "text": {"value": "McDonald's Menu Structure"},
-          "fill": {"value": "#333"}
         }
       }
     }
