@@ -208,7 +208,7 @@
         "Fat": 9.9,
         "Salt": 0.8,
         "Sugar": 0.1,
-        "Type": "Breakfast"
+        "Type": "A La Carte"
     },
     {
         "id": "crispy_chicken_mcmuffin",
@@ -221,7 +221,7 @@
         "Fat": 19.4,
         "Salt": 2,
         "Sugar": 2.9,
-        "Type": "Breakfast"
+        "Type": "A La Carte"
     },
     {
         "id": "crispy_chicken_mcmuffin_with_egg",
@@ -234,7 +234,7 @@
         "Fat": 24.9,
         "Salt": 2.2,    
         "Sugar": 3,
-        "Type": "Breakfast"
+        "Type": "A La Carte"
     },
     {
         "id": "sausage_mcmuffin",
@@ -247,7 +247,7 @@
         "Fat": 11.2,
         "Salt": 1.8,
         "Sugar": 2.5,
-        "Type": "Breakfast"
+        "Type": "A La Carte"
     },
     {
         "id": "sausage_mcmuffin_with_egg",
@@ -260,7 +260,7 @@
         "Fat": 16.7,
         "Salt": 2,
         "Sugar": 2.6,
-        "Type": "Breakfast"
+        "Type": "A La Carte"
     },
     {
         "id": "big_breakfast",
@@ -273,7 +273,7 @@
         "Fat": 28.6,
         "Salt": 2.6,
         "Sugar": 2.2,
-        "Type": "Breakfast"
+        "Type": "A La Carte"
     },
     {
         "id": "hotcakes_with_syrup_and_margarine",
@@ -286,7 +286,7 @@
         "Fat": 6.3,
         "Salt": 1,
         "Sugar": 8.4,
-        "Type": "Breakfast"
+        "Type": "A La Carte"
     },
     {
         "id": "french_fries_medium",
