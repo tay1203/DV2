@@ -1,5 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 300,
   "data": {
     "url": "https://raw.githubusercontent.com/tay1203/Homework-Week10/refs/heads/main/nutrition.csv"
   },
@@ -10,21 +12,14 @@
     }
   ],
   "transform": [
-    { "filter": { "param": "Food" } }
-  ],
-  "hconcat": [
-    {
-      "width": 600,
-      "height": 300,
-      "transform": [
         { "filter": "datum.Food == Food" },
         {
           "fold": [
-            "Carbohydrate (g)",
-            "Protein (g)",
-            "Fat (g)",
             "Salt (g)",
-            "Sugar (g)"
+            "Sugar (g)",
+            "Fat (g)",
+            "Protein (g)",
+            "Carbohydrate (g)"
           ],
           "as": ["Nutrient", "Value"]
         }
@@ -60,8 +55,9 @@
         ]
       }
     } 
-  ]
-}
+
+  
+
 
       
     

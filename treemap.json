@@ -2,8 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "description": "Interactive hierarchical tree visualization of McDonald's menu",
   "width": 300,
-  "height": 1000,
-  "padding": 5,
+  "height": 800,
   
   "signals": [
     {
@@ -62,7 +61,7 @@
         {
           "type": "tree",
           "method": {"signal": "layout"},
-          "size": [{"signal": "height"}, {"signal": "width - 80"}],
+          "size": [{"signal": "height"}, {"signal": "width - 140"}],
           "separation": {"signal": "separation"},
           "as": ["y", "x", "depth", "children"]
         }

@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": "container", 
-    "height": 550,
+    "width": 880, 
+    "height": 450,
     "projection": {"type": "equalEarth"},
     "data": {
         "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
@@ -32,7 +32,7 @@
         "range": ["#d3d3d3", "#ffeda0", "#feb24c", "#fd8d3c", "#f03b20", "#bd0026", "#800026"]
       },
       "legend": {
-        "title": "Branches per 10000 population",
+        "title": "Branches per 10000 pop.",
         "values": [0, 100, 500, 1000, 2000, 10000]
       }
     },
