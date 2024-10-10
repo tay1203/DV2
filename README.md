@@ -1,2 +1,2 @@
-# DV2
- FIT 3179 Data Visualization 2
+McDonald's Dashboard
+https://tay1203.github.io/DV2/
