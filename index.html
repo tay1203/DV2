@@ -19,7 +19,7 @@
     <title>Data Visualization 2</title>
     <style>
         .timeline-item {
-            transition: all 0.5s ease-in-out;
+            transition: all 0.8s ease-in-out;
         }
         
         .fade-in {
@@ -41,30 +41,75 @@
             -ms-overflow-style: none;  /* IE and Edge */
             scrollbar-width: none;  /* Firefox */
         }
+
+        .background-container {
+            position: relative;
+            top: 0; /* Creates space for the title */
+            width: 95%;
+            height: 95%; /* Adjusts for the title space */
+            background-color: rgba(17, 17, 17, 0.119);
+            opacity: 1;
+            z-index: 1;
+            margin: 0 auto; /* Centers the background container */
+        }
+
+        .content-container {
+            position: relative;
+            z-index: 2;
+            top: 10px;
+            bottom: 30px;
+        }
+
+        .timeline-item {
+        transition: all 0.3s ease;
+    }
+
+    .timeline-item.active .relative.rounded-xl {
+        background-color: #ffd700;
+        transform: scale(1.05);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
     </style>
 </head>
 
-<body class="bg-red-700 font-sans min-h-screen">
-    <div class="container px-4 py-8">
-            <h1 class="text-6xl text-center mt-2 text-yellow-400 font-bold">I'm Lovin It !</h1>
-            <div class="mt-6">
-            <div class="grid grid-cols-12 gap-6">
+<body class="bg-gradient-to-t from-gray-900 to-red-700 font-sans">
+    <h1 class="text-4xl lg:text-6xl text-center text-yellow-400 font-bold p-5">I'm Lovin It !</h1>
+    <div class="background-container rounded-xl min-h-screen flex flex-row items-center">
+    <div class="content-container w-11/12 m-auto">
+        <!-- Introduction -->
+        <div class = "grid grid-cols-4">
+            <div class="col-span-1 pt-14">
+                <img src="https://www.mcdonalds.com.my/images/history/1982.png" alt="">
+            </div>
+            <div class="col-span-2">
+                <p class="p-5">McDonald's is one of the world's largest fast-food chains. Founded in 1940 by Richard and Maurice McDonald. McDonald's serves millions of customers daily, offering a wide variety of products. 
+                    Over the years, the company has adapted to changing consumer preferences, introducing healthier options, breakfast menus, and technological innovations such as self-order kiosks and delivery services. 
+                    McDonald's has become a cultural icon, influencing popular culture with its marketing campaigns and its involvement in community and sustainability initiatives. 
+                    Its “Golden Arches” logo is a symbol of global capitalism and ubiquity, making it a brand with a lasting legacy in modern society. 
+                    Through strategic expansions, franchise partnerships, and continuous innovation, McDonald's remains a dominant force in the industry, shaping the way we eat and interact with fast food across the globe. 
+                </p>
+            </div>
+            <div class="col-span-1 pt-14 mt-1">
+                <img src="mcdonalds-1.webp" alt="">
+            </div>
+        </div>
+        <!-- Timeline, Map and Stacked Area Chart-->
+        <div class="grid grid-cols-12 gap-6 mt-6">
                 <!-- Timeline Section -->
                 <div class="col-span-3">
-                    <div class="overflow-hidden h-[1087px] bg-slate-500 rounded-xl">
+                    <div class="overflow-hidden relative h-[1087px] bg-white rounded-xl">
                         <h2 class="font-bold text-2xl text-center pt-5">Timeline</h2>
-                        <div class="absolute h-[1000px] w-[3px] left-[58px] bg-white">
-                        </div>
-                        <div class="relative h-full overflow-y-scroll hide-scrollbar pt-2" id="timeline">
+                        <div class="absolute h-[1035px] w-[3.5px] left-[11.8%] bg-gray-700"></div>
+                        <div class="relative h-full overflow-y-scroll hide-scrollbar pl-6 pb-20 pt-2" id="timeline">
                             
                             <div class="relative w-56 m-auto my-4y timeline-item fade-out">
-                                
                                 <div class="px-1 py-2 max-w-fit">
                                     <div class="relative rounded-xl text-sm bg-neutral-300 p-4">
-                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-10 mt-6">
+                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-9 mt-6">
                                             <div class="w-5 h-5 rounded-full bg-slate-100 z-10 absolute mt-1 ml-1"></div> 
                                         </div>
-                                         
+                                        
                                         <h2 class="font-bold text-xl">1940</h2>
                                         <p class="text-xs">Richard and Maurice McDonald open a small drive-in restaurant in San Bernardino, California.</p>
                                     </div>
@@ -74,7 +119,7 @@
                             <div class="relative w-56 m-auto my-4y timeline-item fade-out">
                                 <div class="px-1 py-2 max-w-fit">
                                     <div class="relative rounded-xl text-sm bg-neutral-300 p-4">
-                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-10 mt-6">
+                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-9 mt-6">
                                             <div class="w-5 h-5 rounded-full bg-slate-100 z-10 absolute mt-1 ml-1"></div> 
                                         </div>
                                         <h2 class="font-bold text-xl">1948</h2>
@@ -86,7 +131,7 @@
                             <div class="relative w-56 m-auto my-4y timeline-item fade-out">
                                 <div class="px-1 py-2 max-w-fit">
                                     <div class="relative rounded-xl text-sm bg-neutral-300 p-4">
-                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-10 mt-6">
+                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-9 mt-6">
                                             <div class="w-5 h-5 rounded-full bg-slate-100 z-10 absolute mt-1 ml-1"></div>  
                                         </div>
                                         <h2 class="font-bold text-xl">1953</h2>
@@ -98,7 +143,7 @@
                             <div class="relative w-56 m-auto my-4y timeline-item fade-out">
                                 <div class="px-1 py-2 max-w-fit">
                                     <div class="relative rounded-xl text-sm bg-neutral-300 p-4">
-                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-10 mt-6">
+                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-9 mt-6">
                                             <div class="w-5 h-5 rounded-full bg-slate-100 z-10 absolute mt-1 ml-1"></div> 
                                         </div>
                                         <h2 class="font-bold text-xl">1955</h2>
@@ -110,7 +155,7 @@
                             <div class="relative w-56 m-auto my-4y timeline-item fade-out">
                                 <div class="px-1 py-2 max-w-fit">
                                     <div class="relative rounded-xl text-sm bg-neutral-300 p-4">
-                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-10 mt-6">
+                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-9 mt-6">
                                             <div class="w-5 h-5 rounded-full bg-slate-100 z-10 absolute mt-1 ml-1"></div> 
                                         </div>
                                         <h2 class="font-bold text-xl">1962</h2>
@@ -122,7 +167,7 @@
                             <div class="relative w-56 m-auto my-4y timeline-item fade-out">
                                 <div class="px-1 py-2 max-w-fit">
                                     <div class="relative rounded-xl text-sm bg-neutral-300 p-4">
-                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-10 mt-6">
+                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-9 mt-6">
                                             <div class="w-5 h-5 rounded-full bg-slate-100 z-10 absolute mt-1 ml-1"></div>  
                                         </div>
                                         <h2 class="font-bold text-xl">1963</h2>
@@ -134,7 +179,7 @@
                             <div class="relative w-56 m-auto my-4y timeline-item fade-out">
                                 <div class="px-1 py-2 max-w-fit">
                                     <div class="relative rounded-xl text-sm bg-neutral-300 p-4">
-                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-10 mt-6">
+                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-9 mt-6">
                                             <div class="w-5 h-5 rounded-full bg-slate-100 z-10 absolute mt-1 ml-1"></div> 
                                         </div>
                                         <h2 class="font-bold text-xl">1967</h2>
@@ -146,7 +191,7 @@
                             <div class="relative w-56 m-auto my-4y timeline-item fade-out">
                                 <div class="px-1 py-2 max-w-fit">
                                     <div class="relative rounded-xl text-sm bg-neutral-300 p-4">
-                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-10 mt-6">
+                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-9 mt-6">
                                             <div class="w-5 h-5 rounded-full bg-slate-100 z-10 absolute mt-1 ml-1"></div> 
                                         </div>
                                         <h2 class="font-bold text-xl">1971</h2>
@@ -158,7 +203,7 @@
                             <div class="relative w-56 m-auto my-4y timeline-item fade-out">
                                 <div class="px-1 py-2 max-w-fit">
                                     <div class="relative rounded-xl text-sm bg-neutral-300 p-4">
-                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-10 mt-6">
+                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-9 mt-6">
                                             <div class="w-5 h-5 rounded-full bg-slate-100 z-10 absolute mt-1 ml-1"></div> 
                                         </div>
                                         <h2 class="font-bold text-xl">1979</h2>
@@ -170,7 +215,7 @@
                             <div class="relative w-56 m-auto my-4y timeline-item fade-out">
                                 <div class="px-1 py-2 max-w-fit">
                                     <div class="relative rounded-xl text-sm bg-neutral-300 p-4">
-                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-10 mt-6">
+                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-9 mt-6">
                                             <div class="w-5 h-5 rounded-full bg-slate-100 z-10 absolute mt-1 ml-1"></div> 
                                         </div>
                                         <h2 class="font-bold text-xl">1982</h2>
@@ -182,7 +227,7 @@
                             <div class="relative w-56 m-auto my-4y timeline-item fade-out">
                                 <div class="px-1 py-2 max-w-fit">
                                     <div class="relative rounded-xl text-sm bg-neutral-300 p-4">
-                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-10 mt-6">
+                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-9 mt-6">
                                             <div class="w-5 h-5 rounded-full bg-slate-100 z-10 absolute mt-1 ml-1"></div> 
                                         </div>
                                         <h2 class="font-bold text-xl">1987</h2>
@@ -194,7 +239,7 @@
                             <div class="relative w-56 m-auto my-4y timeline-item fade-out">
                                 <div class="px-1 py-2 max-w-fit">
                                     <div class="relative rounded-xl text-sm bg-neutral-300 p-4">
-                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-10 mt-6">
+                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-9 mt-6">
                                             <div class="w-5 h-5 rounded-full bg-slate-100 z-10 absolute mt-1 ml-1"></div> 
                                         </div>
                                         <h2 class="font-bold text-xl">1990</h2>
@@ -206,7 +251,7 @@
                             <div class="relative w-56 m-auto my-4y timeline-item fade-out">
                                 <div class="px-1 py-2 max-w-fit">
                                     <div class="relative rounded-xl text-sm bg-neutral-300 p-4">
-                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-10 mt-6">
+                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-9 mt-6">
                                             <div class="w-5 h-5 rounded-full bg-slate-100 z-10 absolute mt-1 ml-1"></div> 
                                         </div>
                                         <h2 class="font-bold text-xl">1993</h2>
@@ -218,7 +263,7 @@
                             <div class="relative w-56 m-auto my-4y timeline-item fade-out">
                                 <div class="px-1 py-2 max-w-fit">
                                     <div class="relative rounded-xl text-sm bg-neutral-300 p-4">
-                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-10 mt-6">
+                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-9 mt-6">
                                             <div class="w-5 h-5 rounded-full bg-slate-100 z-10 absolute mt-1 ml-1"></div>  
                                         </div>
                                         <h2 class="font-bold text-xl">1996</h2>
@@ -230,7 +275,7 @@
                             <div class="relative w-56 m-auto my-4y timeline-item fade-out">
                                 <div class="px-1 py-2 max-w-fit">
                                     <div class="relative rounded-xl text-sm bg-neutral-300 p-4">
-                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-10 mt-6">
+                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-9 mt-6">
                                             <div class="w-5 h-5 rounded-full bg-slate-100 z-10 absolute mt-1 ml-1"></div> 
                                         </div>
                                         <h2 class="font-bold text-xl">2003</h2>
@@ -242,7 +287,7 @@
                             <div class="relative w-56 m-auto my-4y timeline-item fade-out">
                                 <div class="px-1 py-2 max-w-fit">
                                     <div class="relative rounded-xl text-sm bg-neutral-300 p-4">
-                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-10 mt-6">
+                                        <div class="w-7 h-7 rounded-full bg-gray-700 z-10 absolute -left-9 mt-6">
                                             <div class="w-5 h-5 rounded-full bg-slate-100 z-10 absolute mt-1 ml-1"></div> 
                                         </div>
                                         <h2 class="font-bold text-xl">2023</h2>
@@ -255,7 +300,7 @@
                 </div>
                 <div class="col-span-9 grid grid-rows-2 gap-6">
                     <!-- Map container -->
-                    <div class="bg-white rounded-xl p-4 w-[1100px]">
+                    <div class="bg-white rounded-xl p-4">
                         <h2 class="text-xl font-bold p-2 text-center">Mcdonald's Branched Worldwide (2024)</h2>   
                         <div class="relative">
                             <div id="map" class="h-[450px]"></div>
@@ -294,14 +339,13 @@
                     </div>
                     <!-- Area Chart -->
                     <div class="bg-white rounded-xl p-4">
-                        <div id="area" class="w-full h-[300px]"></div>
+                        <h2 class="text-xl font-bold p-2 text-center">Mcdonald's Revenue Overtime</h2>
+                        <div id="area" class="h-[300px]"></div>
                     </div>
                 </div>
             </div>
-        </div>
-
             <!-- Tree Diagram in a vertical column -->
-            <div class="grid grid-cols-12 bg-white rounded-xl p-4 mt-6">
+            <div class="grid grid-cols-12 bg-white rounded-xl p-4 mt-6 mb-10">
             
                 <div id="tree-container" class="col-span-4"></div>
                 <div class="col-span-8 grid grid-rows-3 gap-2">
@@ -351,14 +395,9 @@
                 </div>
                 
             </div>
-            <!-- Nutrition Chart and Donut Charts in a row -->
+            <!-- Nutrition Chart and Donut Charts in a row -->               
         </div>
-            
-                    
-                
-            
-            
-    
+    </div>
     </body>
 
 </html>

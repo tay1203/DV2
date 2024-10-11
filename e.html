@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expandable Post</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div id="post" class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 ease-in-out">
+        <img src="Original2.webp" alt="Post image" class="w-full h-64 object-cover">
+        <div class="p-6">
+            <h2 class="text-2xl font-bold mb-4">Post Title</h2>
+            <p class="text-gray-700" id="postContent">
+                This is a detailed paragraph about the post. It contains a lot of information that will be hidden when the user scrolls down. When minimized, only a portion of this content will be visible. Clicking on the minimized version will expand it back to its full size, revealing all the content once again.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const post = document.getElementById('post');
+        const postContent = document.getElementById('postContent');
+        let isMinimized = false;
+        let originalHeight;
+
+        function minimizePost() {
+            if (!isMinimized) {
+                originalHeight = post.offsetHeight;
+                post.style.maxHeight = '100px';
+                postContent.style.overflow = 'hidden';
+                postContent.style.display = '-webkit-box';
+                postContent.style.webkitLineClamp = '2';
+                postContent.style.webkitBoxOrient = 'vertical';
+                isMinimized = true;
+            }
+        }
+
+        function expandPost() {
+            if (isMinimized) {
+                post.style.maxHeight = originalHeight + 'px';
+                postContent.style.overflow = 'visible';
+                postContent.style.display = 'block';
+                postContent.style.webkitLineClamp = 'none';
+                isMinimized = false;
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                minimizePost();
+            }
+        });
+
+        post.addEventListener('click', () => {
+            if (isMinimized) {
+                expandPost();
+            }
+        });
+    </script>
+</body>
+</html>

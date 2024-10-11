@@ -215,3 +215,78 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver(handleIntersection, options);
     items.forEach(item => observer.observe(item));
 });
+
+// Timeline event coordinates data
+const timelineEvents = {
+  "1940": { lat: 34.1083, lng: -117.2898, description: "First McDonald's in San Bernardino, California" },
+  "1953": { lat: 33.4484, lng: -112.0740, description: "First franchise in Phoenix, Arizona" },
+  "1955": { lat: 42.0334, lng: -87.8834, description: "Ray Kroc's first franchise in Des Plaines, Illinois" },
+  "1967": { lat: 49.2827, lng: -123.1207, description: "First international restaurant in British Columbia" },
+  "1971": { lat: 31.5455, lng: -110.2773, description: "First drive-thru in Sierra Vista, Arizona" },
+  "1982": { lat: 3.1478, lng: 101.7137, description: "First Malaysian restaurant in Bukit Bintang" },
+  "1990": { lat: 55.7558, lng: 37.6173, description: "First Soviet Union restaurant in Moscow" }
+};
+
+let vegaView;
+
+// Function to initialize the map
+async function initializeMap() {
+  try {
+      // Fetch the map configuration
+      const response = await fetch('w9.json');
+      const mapSpec = await response.json();
+
+      // Initialize the visualization
+      const result = await vegaEmbed('#map', mapSpec);
+      vegaView = result.view;
+
+      // Add click listeners to timeline items
+      const timelineItems = document.querySelectorAll('.timeline-item');
+      timelineItems.forEach(item => {
+          item.addEventListener('click', () => {
+              const yearElement = item.querySelector('h2');
+              if (yearElement) {
+                  const year = yearElement.textContent;
+                  updateMapPoint(year);
+              }
+          });
+      });
+
+  } catch (error) {
+      console.error('Error initializing map:', error);
+  }
+}
+
+// Function to update the point on the map
+function updateMapPoint(year) {
+  const event = timelineEvents[year];
+  if (!event) return;
+
+  // Update the points layer with new data
+  const pointData = [{
+      lat: event.lat,
+      lng: event.lng,
+      description: event.description
+  }];
+
+  // Update the view with new point data
+  vegaView.data('pointData', pointData);
+  vegaView.run();
+}
+
+// Initialize the map when the document is loaded
+document.addEventListener('DOMContentLoaded', initializeMap);
+
+// Add visual feedback for timeline item clicks
+document.addEventListener('DOMContentLoaded', () => {
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  
+  timelineItems.forEach(item => {
+      item.addEventListener('click', () => {
+          // Remove active class from all items
+          timelineItems.forEach(i => i.classList.remove('active'));
+          // Add active class to clicked item
+          item.classList.add('active');
+      });
+  });
+});

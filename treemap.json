@@ -101,12 +101,16 @@
         },
         "update": {
           "path": {"field": "path"},
-          "stroke": {"value": "#ddd"},
+          "stroke": {"value": "#ccc"},
           "strokeOpacity": {"value": 0.6}
         },
         "hover": {
           "stroke": {"value": "#999"},
           "strokeOpacity": {"value": 1}
+        },
+        "leave": {
+          "stroke": {"value": "#ccc"},
+          "strokeOpacity": {"value": 0.6}
         }
       }
     },
@@ -117,7 +121,7 @@
       "encode": {
         "enter": {
           "size": {"value": 180},
-          "stroke": {"value": "white"},
+          "stroke": {"value": "lightgray"},
           "strokeWidth": {"value": 2}
         },
         "update": {
@@ -132,6 +136,10 @@
         "hover": {
           "size": {"value": 300},
           "strokeWidth": {"value": 3}
+        },
+        "leave": {
+          "size": {"value": 180},
+          "strokeWidth": {"value": 2}
         }
       }
     },
@@ -157,6 +165,10 @@
         "hover": {
           "fill": {"value": "#000"},
           "fontWeight": {"value": "bold"}
+        },
+        "leave": {
+          "fill": {"value": "#333"},
+          "fontWeight": {"value": "normal"}
         }
       }
     }
