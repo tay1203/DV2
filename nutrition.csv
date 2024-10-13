@@ -5,7 +5,7 @@ Chicken, 0, 0, 0, 0, 0, 0, 0, null, Chicken, Menu
 Breakfast, 0, 0, 0, 0, 0, 0, 0, null, Breakfast, Menu
 Sides, 0, 0, 0, 0, 0, 0, 0, null, Sides, Menu
 Beverages, 0, 0, 0, 0, 0, 0, 0, null, Beverages, Menu
-None, 0, 0, 0, 0, 0, 0, 0, null, None, Menu
+None, 1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, null, None, Menu
 Beefburger,103,249,31.5,13.1,8,1.5,5.9,A La Carte, Beefburger, Burgers
 Cheeseburger,117,297,32.8,15.7,11.7,1.8,6.5,A La Carte, Cheeseburger, Burgers
 Double Cheeseburger,169,435,34.5,26.3,21.6,2.8,7.1,A La Carte, DoubleCheeseburger, Burgers
