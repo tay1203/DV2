@@ -54,7 +54,7 @@
         "Salt": 1.8,
         "Sugar": 6.5,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/cheeseburger.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/cheeseburger.png?raw=true"
     },
     {
         "id": "double_cheeseburger",
@@ -68,7 +68,7 @@
         "Salt": 2.8,
         "Sugar": 7.1,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/doublecheeseburger.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/doublecheeseburger.png?raw=true"
     },
     {
         "id": "big_mac",
@@ -82,7 +82,7 @@
         "Salt": 2.7,
         "Sugar": 8.4,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/ayamgoreng.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/ayamgoreng.png?raw=true"
     },
     {
         "id": "mcchicken",
@@ -96,7 +96,7 @@
         "Salt": 2.2,
         "Sugar": 5.7,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/mcchicken.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/mcchicken.png?raw=true"
     },
     {
         "id": "spicy_chicken_mcdeluxe",
@@ -110,7 +110,7 @@
         "Salt": 3.6,
         "Sugar": 5.2,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/mcdeluxe.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/mcdeluxe.png?raw=true"
     },
     {
         "id": "chicken_mcnuggets_6_pcs",
@@ -124,7 +124,7 @@
         "Salt": 1.3,
         "Sugar": 0,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/nuggets.png" 
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/nuggets.png?raw=true" 
     },
     {
         "id": "ayam_goreng_mcd_regular",
@@ -138,7 +138,7 @@
         "Salt": 1.3,
         "Sugar": 0,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/ayamgoreng.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/ayamgoreng.png?raw=true"
     },
     {
         "id": "ayam_goreng_mcd_spicy",
@@ -152,7 +152,7 @@
         "Salt": 1.6,
         "Sugar": 0,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/ayamgoreng.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/ayamgoreng.png?raw=true"
     },
     {
         "id": "bubur_ayam_mcd_large",
@@ -166,7 +166,7 @@
         "Salt": 2.5,
         "Sugar": 1,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/bubur.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/bubur.png?raw=true"
     },
     {
         "id": "nasi_lemak_mcd",
@@ -180,7 +180,7 @@
         "Salt": 3.9,
         "Sugar": 6.2,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/nuggets.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/nuggets.png?raw=true"
     },
     {
         "id": "gcb_grilled_chicken_burger",
@@ -194,7 +194,7 @@
         "Salt": 2.5,
         "Sugar": 6.8,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/gcb.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/gcb.png?raw=true"
     },
     {
         "id": "filet_o_fish",
@@ -208,7 +208,7 @@
         "Salt": 1.4,
         "Sugar": 4.6,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/filetofish.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/filetofish.png?raw=true"
     },
     {
         "id": "hash_browns",
@@ -222,7 +222,7 @@
         "Salt": 0.8,
         "Sugar": 0.1,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/hashbrown.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/hashbrown.png?raw=true"
     },
     {
         "id": "crispy_chicken_mcmuffin",
@@ -236,7 +236,7 @@
         "Salt": 2,
         "Sugar": 2.9,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/hashbrown.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/hashbrown.png?raw=true"
     },
     {
         "id": "crispy_chicken_mcmuffin_with_egg",
@@ -250,7 +250,7 @@
         "Salt": 2.2,    
         "Sugar": 3,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/hashbrown.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/hashbrown.png?raw=true"
     },
     {
         "id": "sausage_mcmuffin",
@@ -264,7 +264,7 @@
         "Salt": 1.8,
         "Sugar": 2.5,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/sausagemuffin.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/sausagemuffin.png?raw=true"
     },
     {
         "id": "sausage_mcmuffin_with_egg",
@@ -278,7 +278,7 @@
         "Salt": 2,
         "Sugar": 2.6,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/sausagemuffinegg.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/sausagemuffinegg.png?raw=true"
     },
     {
         "id": "big_breakfast",
@@ -292,7 +292,7 @@
         "Salt": 2.6,
         "Sugar": 2.2,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/ayamgoreng.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/ayamgoreng.png?raw=true"
     },
     {
         "id": "hotcakes_with_syrup_and_margarine",
@@ -306,7 +306,7 @@
         "Salt": 1,
         "Sugar": 8.4,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/hotcakes.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/hotcakes.png?raw=true"
     },
     {
         "id": "french_fries_medium",
@@ -320,7 +320,7 @@
         "Salt": 0.2,
         "Sugar": 0.2,
         "Type": "Sides",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/fries.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/fries.png?raw=true"
     },
     {
         "id": "corn_cup_large",
@@ -334,7 +334,7 @@
         "Salt": 0.4,
         "Sugar": 6.1,
         "Type": "Sides",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/corn.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/corn.png?raw=true"
     },
     {
         "id": "coke_medium",
@@ -348,7 +348,7 @@
         "Salt": 0,
         "Sugar": 32,
         "Type": "Beverages",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/coke.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/coke.png?raw=true"
     },
     {
         "id": "sprite_medium",
@@ -362,7 +362,7 @@
         "Salt": 0.1,
         "Sugar": 15.3,
         "Type": "Beverages",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/sprite.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/sprite.png?raw=true"
     },
     {
         "id": "minute_maid_orange_juice_medium",
@@ -376,7 +376,7 @@
         "Salt": 0,
         "Sugar": 30,
         "Type": "Beverages",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/orange.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/orange.png?raw=true"
     },
     {
         "id": "iced_lemon_tea_medium",
@@ -390,7 +390,7 @@
         "Salt": 0,
         "Sugar": 13.9,
         "Type": "Beverages",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/lemon.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/lemon.png?raw=true"
     },
     {
         "id": "iced_milo_medium",
@@ -404,7 +404,7 @@
         "Salt": 0.2,
         "Sugar": 26.1,
         "Type": "Beverages",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/milo.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/milo.png?raw=true"
     },
     {
         "id": "sundae_chocolate",
@@ -418,7 +418,7 @@
         "Salt": 0.5,
         "Sugar": 49.7,
         "Type": "Sides",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/chocolate_sundae.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/chocolate_sundae.png?raw=true"
     },
     {
         "id": "sundae_strawberry",
@@ -432,7 +432,7 @@
         "Salt": 0.3,
         "Sugar": 50.7,
         "Type": "Sides",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/strawberry_sundae.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/strawberry_sundae.png?raw=true"
     },
     {
         "id": "sundae_cone",
@@ -446,7 +446,7 @@
         "Salt": 0.2,
         "Sugar": 18.4,
         "Type": "Sides",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/sundae.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/sundae.png?raw=true"
     },
     {
         "id": "choco_top",
@@ -460,7 +460,7 @@
         "Salt": 0.2,
         "Sugar": 22.7,
         "Type": "Sides",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/chocotop.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/chocotop.png?raw=true"
     },
     {
         "id": "oreo_mcflurry",
@@ -474,7 +474,7 @@
         "Salt": 0.5,
         "Sugar": 38.9,
         "Type": "Sides",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/oreo.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/oreo.png?raw=true"
     },
     {
         "id": "apple_pie",
@@ -488,6 +488,6 @@
         "Salt": 0.4,
         "Sugar": 7.7,
         "Type": "Sides",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/applepie.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/applepie.ong?raw=true"
     }
 ]
