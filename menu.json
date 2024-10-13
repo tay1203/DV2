@@ -82,7 +82,7 @@
         "Salt": 2.7,
         "Sugar": 8.4,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/ayamgoreng.png?raw=true"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/bigmac.png?raw=true"
     },
     {
         "id": "mcchicken",
@@ -180,7 +180,7 @@
         "Salt": 3.9,
         "Sugar": 6.2,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/nuggets.png?raw=true"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/nasilemak.png?raw=true"
     },
     {
         "id": "gcb_grilled_chicken_burger",
@@ -236,7 +236,7 @@
         "Salt": 2,
         "Sugar": 2.9,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/hashbrown.png?raw=true"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/crispymuffin.png?raw=true"
     },
     {
         "id": "crispy_chicken_mcmuffin_with_egg",
@@ -250,7 +250,7 @@
         "Salt": 2.2,    
         "Sugar": 3,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/hashbrown.png?raw=true"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/crispymuffinegg.png?raw=true"
     },
     {
         "id": "sausage_mcmuffin",
@@ -292,7 +292,7 @@
         "Salt": 2.6,
         "Sugar": 2.2,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/ayamgoreng.png?raw=true"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/bigbreakfast.png?raw=true"
     },
     {
         "id": "hotcakes_with_syrup_and_margarine",
