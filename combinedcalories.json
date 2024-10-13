@@ -10,20 +10,20 @@
       "name": "nutrition"
     },
     "transform": [
-        {
-        "calculate": "datum.value",
-        "as": "Contained Salt"
-        },
       {
-        "calculate": "max(0, 5 - datum.value)",
-        "as": "Remaining Salt"
+        "calculate": "datum.value",
+        "as": "Contained Calories"
       },
       {
-        "calculate": "datum.value / 5 * 100",
+        "calculate": "2130 - datum.value",
+        "as": "Remaining Calories"
+      },
+      {
+        "calculate": "datum.value / 2130 * 100",
         "as": "Percentage"
       },
       {
-        "fold": ["Contained Salt", "Remaining Salt"],
+        "fold": ["Contained Calories", "Remaining Calories"],
         "as": ["Category", "Amount"]
       }
     ],
@@ -44,7 +44,7 @@
             "field": "Category",
             "type": "nominal",
             "scale": {
-              "domain": ["Contained Salt", "Remaining Salt"],
+              "domain": ["Contained Calories", "Remaining Calories"],
               "range": ["#C8102E", "#b5b5b5"]
             },
             "legend": null
@@ -129,7 +129,7 @@
           "dy": 5
         },
         "encoding": {
-          "text": { "value": "Salt" },
+          "text": { "value": "Calories" },
           "y": { "value": 130 }
         }
       }

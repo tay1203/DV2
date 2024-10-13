@@ -1,14 +1,18 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 200,
-    "height": 200,
+    "width": 160,
+    "height": 190,
+    "padding": {"top": 20},
+    "config": {
+    "view": {"stroke": "transparent"}
+  },
     "data": {
-    "url": "https://raw.githubusercontent.com/tay1203/Homework-Week10/refs/heads/main/nutrition.csv"
+    "url": "https://raw.githubusercontent.com/tay1203/DV2/refs/heads/main/nutrition.csv"
     },
     "params": [
         {
         "name": "Food",
-        "value": "Big Mac"
+        "value": "None"
         }
     ],
         "transform": [
@@ -32,7 +36,7 @@
             ],
             "mark": {
             "type": "arc",
-            "innerRadius": 70,
+            "innerRadius": 60,
             "tooltip": true
             },
             "encoding": {
@@ -46,7 +50,7 @@
                 "type": "nominal",
                 "scale": {
                 "domain": ["Salt (g)", "Remaining Salt"],
-                "range": ["#C8102E", "#FFCC00"]
+                "range": ["#C8102E", "#b5b5b5"]
                 },
                 "legend": null
             },
@@ -59,59 +63,80 @@
         },
         {
             "mark": {
-            "type": "text",
-            "align": "center",
-            "baseline": "middle",
-            "fontSize": 30,
-            "font": "Arial"
+              "type": "text",
+              "align": "center",
+              "baseline": "middle",
+              "fontSize": 40,
+              "font": "Arial",
+              "dx": -10,
+              "dy": 2
             },
             "encoding": {
-            "text": {
+              "text": {
                 "field": "Percentage",
                 "type": "quantitative",
-                "format": ".0f"
-            },
-            "y": { "value": 80 }
+                "format": ".0f",
+                "formatType": "number"
+              },
+              "y": { "value": 80 }
             }
-        },
-        {
+          },
+          {
             "mark": {
-            "type": "text",
-            "align": "center",
-            "baseline": "middle",
-            "fontSize": 12,
-            "font": "Arial"
+              "type": "text",
+              "align": "center",
+              "baseline": "middle",
+              "fontSize": 35,
+              "font": "Arial",
+              "dx": 28,
+              "dy": 2
             },
             "encoding": {
-            "text": { "value": "of Daily" },
-            "y": { "value": 100 }
+              "text": { "value": "%" },
+              "y": { "value": 80 }
             }
-        },
-        {
+          },
+          {
             "mark": {
-            "type": "text",
-            "align": "center",
-            "baseline": "middle",
-            "fontSize": 12,
-            "font": "Arial"
+              "type": "text",
+              "align": "center",
+              "baseline": "middle",
+              "fontSize": 12,
+              "font": "Arial",
+              "dy": 8
             },
             "encoding": {
-            "text": { "value": "Recommended" },
-            "y": { "value": 115 }
+              "text": { "value": "of Daily" },
+              "y": { "value": 100 }
             }
-        },
-        {
+          },
+          {
             "mark": {
-            "type": "text",
-            "align": "center",
-            "baseline": "middle",
-            "fontSize": 12,
-            "font": "Arial"
+              "type": "text",
+              "align": "center",
+              "baseline": "middle",
+              "fontSize": 12,
+              "font": "Arial",
+              "dy": 6.5
             },
             "encoding": {
-            "text": { "value": "Salt" },
-            "y": { "value": 130 }
+              "text": { "value": "Recommended" },
+              "y": { "value": 115 }
             }
-        }
-    ]
-}
+          },
+          {
+            "mark": {
+              "type": "text",
+              "align": "center",
+              "baseline": "middle",
+              "fontSize": 12,
+              "font": "Arial",
+              "dy": 5
+            },
+            "encoding": {
+              "text": { "value": "Salt" },
+              "y": { "value": 130 }
+            }
+          }
+        ]
+      }

@@ -1,118 +1,142 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 200,
-    "height": 200,
-    "data": {
-    "url": "https://raw.githubusercontent.com/tay1203/Homework-Week10/refs/heads/main/nutrition.csv"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 160,
+  "height": 190,
+  "padding": {"top": 20},
+  "config": {
+    "view": {"stroke": "transparent"}
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/tay1203/DV2/refs/heads/main/nutrition.csv"
   },
   "params": [
     {
       "name": "Food",
-      "value": "Big Mac"
+      "value": "None"
     }
   ],
-    "transform": [
+  "transform": [
     { "filter": "datum.Food == Food" },
-      {
-        "calculate": "2130 - datum['Energy (kcal)']",
-        "as": "Remaining Calories"
+    {
+      "calculate": "2130 - datum['Energy (kcal)']",
+      "as": "Remaining Calories"
+    },
+    {
+      "calculate": "datum['Energy (kcal)'] / 2130 * 100",
+      "as": "Percentage"
+    }
+  ],
+  "layer": [
+    {
+      "transform": [
+        {
+          "fold": ["Energy (kcal)", "Remaining Calories"],
+          "as": ["Category", "Value"]
+        }
+      ],
+      "mark": {
+        "type": "arc",
+        "innerRadius": 60,
+        "tooltip": true
       },
-      {
-        "calculate": "datum['Energy (kcal)'] / 2130 * 100",
-        "as": "Percentage"
+      "encoding": {
+        "theta": {
+          "field": "Value",
+          "type": "quantitative",
+          "sort": "ascending"
+        },
+        "color": {
+          "field": "Category",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Energy (kcal)", "Remaining Calories"],
+            "range": ["#C8102E", "#b5b5b5"]
+          },
+          "legend": null
+        },
+        "order": { "field": "Category", "sort": "ascending" },
+        "tooltip": [
+          { "field": "Category", "type": "nominal" },
+          { "field": "Value", "type": "quantitative", "format": ".2f" }
+        ]
       }
-    ],
-    "layer": [
-      {
-        "transform": [
-          {
-            "fold": ["Energy (kcal)", "Remaining Calories"],
-            "as": ["Category", "Value"]
-          }
-        ],
-        "mark": {
-          "type": "arc",
-          "innerRadius": 70,
-          "tooltip": true
-        },
-        "encoding": {
-          "theta": {
-            "field": "Value",
-            "type": "quantitative",
-            "sort": "ascending"
-          },
-          "color": {
-            "field": "Category",
-            "type": "nominal",
-            "scale": {
-              "domain": ["Energy (kcal)", "Remaining Calories"],
-              "range": ["#C8102E", "#FFCC00"]
-            
-            },
-            "legend": null
-          },
-          "order": { "field": "Category", "sort": "ascending" },
-          "tooltip": [
-            { "field": "Category", "type": "nominal" },
-            { "field": "Value", "type": "quantitative", "format": ".2f" }
-          ]
-        }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 40,
+        "font": "Arial",
+        "dx": -10,
+        "dy": 2
       },
-      {
-        "mark": {
-          "type": "text",
-          "align": "center",
-          "baseline": "middle",
-          "fontSize": 30,
-          "font": "Arial"
+      "encoding": {
+        "text": {
+          "field": "Percentage",
+          "type": "quantitative",
+          "format": ".0f",
+          "formatType": "number"
         },
-        "encoding": {
-          "text": {
-            "field": "Percentage",
-            "type": "quantitative",
-            "format": ".0f"
-          },
-          "y": { "value": 80 }
-        }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align": "center",
-          "baseline": "middle",
-          "fontSize": 12,
-          "font": "Arial"
-        },
-        "encoding": {
-          "text": { "value": "of Daily" },
-          "y": { "value": 100 }
-        }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align": "center",
-          "baseline": "middle",
-          "fontSize": 12,
-          "font": "Arial"
-        },
-        "encoding": {
-          "text": { "value": "Recommended" },
-          "y": { "value": 115 }
-        }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align": "center",
-          "baseline": "middle",
-          "fontSize": 12,
-          "font": "Arial"
-        },
-        "encoding": {
-          "text": { "value": "Calories" },
-          "y": { "value": 130 }
-        }
+        "y": { "value": 80 }
       }
-    ]
-  }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 35,
+        "font": "Arial",
+        "dx": 28,
+        "dy": 2
+      },
+      "encoding": {
+        "text": { "value": "%" },
+        "y": { "value": 80 }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 12,
+        "font": "Arial",
+        "dy": 8
+      },
+      "encoding": {
+        "text": { "value": "of Daily" },
+        "y": { "value": 100 }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 12,
+        "font": "Arial",
+        "dy": 6.5
+      },
+      "encoding": {
+        "text": { "value": "Recommended" },
+        "y": { "value": 115 }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 12,
+        "font": "Arial",
+        "dy": 5
+      },
+      "encoding": {
+        "text": { "value": "Calories" },
+        "y": { "value": 130 }
+      }
+    }
+  ]
+}

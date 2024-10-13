@@ -1,14 +1,14 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 700,
-  "height": 300,
+  "height": 280,
   "data": {
-    "url": "https://raw.githubusercontent.com/tay1203/Homework-Week10/refs/heads/main/nutrition.csv"
+    "url": "https://raw.githubusercontent.com/tay1203/DV2/refs/heads/main/nutrition.csv"
   },
   "params": [
     {
       "name": "Food",
-      "value": "Big Mac"
+      "value": "None"
     }
   ],
   "transform": [
@@ -29,7 +29,8 @@
         "tooltip": true,
         "color": "#FFCC00",
         "stroke": "#C8102E",
-        "strokeWidth": 1
+        "strokeWidth": 1,
+        "size": 35
       },
       "encoding": {
         "x": {
@@ -38,7 +39,8 @@
           "title": "Amount (g)",
           "axis": {
             "labelColor": "#C8102E",
-            "titleColor": "#C8102E"
+            "titleColor": "#C8102E",
+            "tickCount": 10
           }
         },
         "y": {
@@ -46,7 +48,9 @@
           "type": "nominal",
           "title": null,
           "axis": {
-            "labelColor": "#C8102E"
+            "labelColor": "#C8102E",
+            "labelFontSize": 13,
+            "tickCount": 10
           }
         },
         "tooltip": [

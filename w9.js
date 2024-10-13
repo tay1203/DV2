@@ -7,153 +7,231 @@ vegaEmbed("#area", vg_2).then(function(result){
 }).catch(console.error);
 
 document.addEventListener('DOMContentLoaded', function() {
-    let treeView, nutritionView, sugarView, caloriesView, saltView;
-    let nutritionData = null;
+  let treeView, nutritionView, sugarView, caloriesView, saltView;
+  let nutritionData = null;
 
-    async function loadJSON(url) {
-        const response = await fetch(url);
-        return response.json();
+  async function loadJSON(url) {
+      const response = await fetch(url);
+      return response.json();
+  }
+
+  async function loadNutritionData() {
+      const response = await fetch('https://raw.githubusercontent.com/tay1203/DV2/refs/heads/main/menu.json');
+      return response.json();
+  }
+
+  async function updateNutritionChart() {
+    if (!nutritionData || !nutritionView || !combinedNutritionView || !combinedSaltView) return;
+  
+    const meal = document.getElementById('mealSelect').value;
+    const side = document.getElementById('sideSelect').value;
+    const drink = document.getElementById('drinkSelect').value;
+  
+    const mealItem = nutritionData.find(item => item.name === meal);
+    const sideItem = nutritionData.find(item => item.name === side);
+    const drinkItem = nutritionData.find(item => item.name === drink);
+
+    // Default image URLs
+    const defaultImage = 'https://github.com/tay1203/DV2/blob/main/images/logo.png?raw=true';
+
+    // Display meal image
+    const mealImgElement = document.getElementById('mealImage');
+    if (mealItem && mealItem.imageURL) {
+        mealImgElement.src = mealItem.imageURL;
+        mealImgElement.style.display = 'block';
+    } else {
+        mealImgElement.src = defaultImage; // Show default meal image if none selected
+        mealImgElement.style.display = 'block';
     }
 
-    async function loadNutritionData() {
-        const response = await fetch('https://raw.githubusercontent.com/tay1203/DV2/refs/heads/main/menu.json');
-        return response.json();
+    // Display side image
+    const sideImgElement = document.getElementById('sideImage');
+    if (sideItem && sideItem.imageURL) {
+        sideImgElement.src = sideItem.imageURL;
+        sideImgElement.style.display = 'block';
+    } else {
+        sideImgElement.src = defaultImage; // Show default side image if none selected
+        sideImgElement.style.display = 'block';
     }
 
-    async function updateNutritionChart() {
-        if (!nutritionData || !nutritionView) return;
-
-        const meal = document.getElementById('mealSelect').value;
-        const side = document.getElementById('sideSelect').value;
-        const drink = document.getElementById('drinkSelect').value;
-
-        const selections = [meal, side, drink].filter(item => item);
-        
-        if (selections.length === 0) {
-            const defaultItem = nutritionData.find(item => item.name === "Big Mac") || nutritionData[0];
-            await updateAllViews(defaultItem.name);
-            return;
-        }
-
-        // Calculate combined nutrition values
-        let totalCalories = 0;
-        let totalSugar = 0;
-        let totalSalt = 0;
-        let totalFat = 0;
-        let totalProtein = 0;
-        let totalCarbs = 0;
-
-        selections.forEach(itemName => {
-            const itemData = nutritionData.find(d => d.name === itemName);
-            if (itemData) {
-                totalCalories += parseFloat(itemData.Calories || 0);
-                totalSugar += parseFloat(itemData.Sugar || 0);
-                totalSalt += parseFloat(itemData.Salt || 0);
-                totalFat += parseFloat(itemData.Fat || 0);
-                totalProtein += parseFloat(itemData.Protein || 0);
-                totalCarbs += parseFloat(itemData.Carbohydrate || 0);
-            }
-        });
-
-        const virtualFood = {
-            name: selections.join(" + "),
-            calories: totalCalories,
-            sugar: totalSugar,
-            salt: totalSalt,
-            fat: totalFat,
-            protein: totalProtein,
-            carbohydrate: totalCarbs
-        };
-
-        await updateAllViews(virtualFood.name, virtualFood);
+    // Display drink image
+    const drinkImgElement = document.getElementById('drinkImage');
+    if (drinkItem && drinkItem.imageURL) {
+        drinkImgElement.src = drinkItem.imageURL;
+        drinkImgElement.style.display = 'block';
+    } else {
+        drinkImgElement.src = defaultImage; // Show default drink image if none selected
+        drinkImgElement.style.display = 'block';
     }
 
-    async function updateAllViews(foodName, customData = null) {
-        const data = customData || nutritionData.find(item => item.name === foodName);
-        if (!data) return;
 
-        const viewUpdates = [
-            nutritionView.signal("Food", foodName).runAsync(),
-            sugarView.signal("Food", foodName).runAsync(),
-            caloriesView.signal("Food", foodName).runAsync(),
-            saltView.signal("Food", foodName).runAsync()
-        ];
+    // Check if all dropdowns are empty or set to "None"
+    const selections = [meal, side, drink].filter(item => item && item !== "");
+    // Check if all dropdowns are set to "None"
+    if (!meal && !side && !drink) {
+      // Set to zero values for nutrition when all are "None"
+  
+        // No selections made, show default view
+        document.getElementById('nutrition-container').style.display = 'block';
+        document.getElementById('salt-container').style.display = 'block';
+        document.getElementById('calories-container').style.display = 'block';
+        document.getElementById('sugar-container').style.display = 'block';
+        document.getElementById('combined-container').style.display = 'none';
+        document.getElementById('combined-calories-container').style.display = 'none';
+        document.getElementById('combined-salt-container').style.display = 'none';
+        document.getElementById('combined-sugar-container').style.display = 'none';
 
-        // if (customData) {
-        //     viewUpdates.push(
-        //         nutritionView.data('nutrition', [data]).runAsync(),
-        //         sugarView.data('nutrition', [data]).runAsync(),
-        //         caloriesView.data('nutrition', [data]).runAsync(),
-        //         saltView.data('nutrition', [data]).runAsync()
-        //     );
-        // }
+        nutritionView.signal("Food", "None").run();
+        caloriesView.signal("Food", "None").run();
+        sugarView.signal("Food", "None").run();
+        saltView.signal("Food", "None").run();
 
-        await Promise.all(viewUpdates);
+        return;  // Exit the function early
     }
+  
+    // Calculate combined nutrition values
+    let totalCalories = 0, totalSugar = 0, totalSalt = 0, totalFat = 0, totalProtein = 0, totalCarbs = 0;
+  
+    selections.forEach(itemName => {
+      const itemData = nutritionData.find(d => d.name === itemName);
+      if (itemData) {
+        totalCalories += parseFloat(itemData.Energy || 0);
+        totalSugar += parseFloat(itemData.Sugar || 0);
+        totalSalt += parseFloat(itemData.Salt || 0);
+        totalFat += parseFloat(itemData.Fat || 0);
+        totalProtein += parseFloat(itemData.Protein || 0);
+        totalCarbs += parseFloat(itemData.Carbohydrate || 0);
+      }
+    });
+  
+    const combinedData = [
+      {nutrient: "Calories (kcal)", value: totalCalories},
+      {nutrient: "Salt (g)", value: totalSalt},
+      {nutrient: "Sugar (g)", value: totalSugar},
+      {nutrient: "Fat (g)", value: totalFat},
+      {nutrient: "Protein (g)", value: totalProtein},
+      {nutrient: "Carbohydrate (g)", value: totalCarbs}
+    ];
+  
+    // Update the appropriate view based on the number of selections
+    if (selections.length === 1) {
+      // Single selection: show nutrition-container and salt-container, hide combined containers
+      document.getElementById('nutrition-container').style.display = 'block';
+      document.getElementById('salt-container').style.display = 'block';
+      document.getElementById('calories-container').style.display = 'block';
+      document.getElementById('sugar-container').style.display = 'block';
+      document.getElementById('combined-container').style.display = 'none';
+      document.getElementById('combined-calories-container').style.display = 'none';
+      document.getElementById('combined-salt-container').style.display = 'none';
+      document.getElementById('combined-sugar-container').style.display = 'none';
+      
+      nutritionView.signal("Food", selections[0]).run();
+      caloriesView.signal("Food", selections[0]).run();
+      sugarView.signal("Food", selections[0]).run();
+      saltView.signal("Food", selections[0]).run();
 
-    async function initVisualizations() {
-        try {
-            const [treeSpec, nutritionSpec, sugar, calories, salt, nutrData] = await Promise.all([
-                loadJSON('treemap.json'),
-                loadJSON('w10.json'),
-                loadJSON('sugar.json'),
-                loadJSON('calories.json'),
-                loadJSON('salt.json'),
-                loadNutritionData()
-            ]);
+    } else if (selections.length > 1) {
+      // Multiple selections: hide nutrition-container and salt-container, show combined containers
+      document.getElementById('nutrition-container').style.display = 'none';
+      document.getElementById('salt-container').style.display = 'none';
+      document.getElementById('calories-container').style.display = 'none';
+      document.getElementById('sugar-container').style.display = 'none';
+      document.getElementById('combined-container').style.display = 'block';
+      document.getElementById('combined-calories-container').style.display = 'block';
+      document.getElementById('combined-salt-container').style.display = 'block';
+      document.getElementById('combined-sugar-container').style.display = 'block';
+      
+      combinedNutritionView.data('nutrition', combinedData).run();
+      combinedCaloriesView.data('nutrition', [combinedData[0]]).run();
+      combinedSaltView.data('nutrition', [combinedData[1]]).run();
+      combinedSugarView.data('nutrition', [combinedData[2]]).run();
+    }
+  
+  }
 
-            nutritionData = nutrData;
+  async function initVisualizations() {
+      try {
+          const [treeSpec, nutritionSpec, sugar, calories, salt, nutrData] = await Promise.all([
+              loadJSON('treemap.json'),
+              loadJSON('w10.json'), // Use the new combined meal chart spec
+              loadJSON('sugar.json'),
+              loadJSON('calories.json'),
+              loadJSON('salt.json'),
+              loadNutritionData()
+          ]);
 
-            const treeResult = await vegaEmbed('#tree-container', treeSpec);
-            treeView = treeResult.view;
+          nutritionData = nutrData;
 
-            const nutritionResult = await vegaEmbed('#nutrition-container', nutritionSpec, {
+          const treeResult = await vegaEmbed('#tree-container', treeSpec);
+          treeView = treeResult.view;
+
+          const nutritionResult = await vegaEmbed('#nutrition-container', nutritionSpec, {
               data: { nutrition: nutritionData }
-            });
-            nutritionView = nutritionResult.view;
+          });
+          nutritionView = nutritionResult.view;
 
-            const caloriesResult = await vegaEmbed('#calories-container', calories);
-            caloriesView = caloriesResult.view;
+          const caloriesResult = await vegaEmbed('#calories-container', calories);
+          caloriesView = caloriesResult.view;
 
-            const saltResult = await vegaEmbed('#sugar-container', sugar);
-            saltView = saltResult.view;
+          const saltResult = await vegaEmbed('#salt-container', salt);
+          saltView = saltResult.view;
 
-            const sugarResult = await vegaEmbed('#salt-container', salt);
-            sugarView = sugarResult.view;
+          const sugarResult = await vegaEmbed('#sugar-container', sugar);
+          sugarView = sugarResult.view;
 
-            populateDropdowns(nutritionData);
+          const combinedNutritionSpec = await loadJSON('combined.json');
+          const combinedNutritionResult = await vegaEmbed('#combined-container', combinedNutritionSpec);
+          combinedNutritionView = combinedNutritionResult.view;
 
-            treeView.addSignalListener('Food', async function(name, value) {
-                if (value) {
-                    const selectedItem = nutritionData.find(item => item.name === value);
-                    if (selectedItem) {
-                        // Reset all dropdowns first
-                        document.getElementById('mealSelect').value = "";
-                        document.getElementById('sideSelect').value = "";
-                        document.getElementById('drinkSelect').value = "";
+          const combinedCaloriesSpec = await loadJSON('combinedcalories.json');
+          const combinedCaloriesResult = await vegaEmbed('#combined-calories-container', combinedCaloriesSpec);
+          combinedCaloriesView = combinedCaloriesResult.view;
 
-                        // Set the appropriate dropdown based on the Type
-                        if (selectedItem.Type) {
-                            if (selectedItem.Type.includes('A La Carte')) {
-                                document.getElementById('mealSelect').value = value;
-                            } else if (selectedItem.Type.includes('Sides')) {
-                                document.getElementById('sideSelect').value = value;
-                            } else if (selectedItem.Type.includes('Beverages')) {
-                                document.getElementById('drinkSelect').value = value;
-                            }
-                        }
-                        updateNutritionChart();
-                    }
-                }
-            });
+          const combinedSaltSpec = await loadJSON('combinedsalt.json');
+          const combinedSaltResult = await vegaEmbed('#combined-salt-container', combinedSaltSpec);
+          combinedSaltView = combinedSaltResult.view;
 
-            document.getElementById('mealSelect').addEventListener('change', updateNutritionChart);
-            document.getElementById('sideSelect').addEventListener('change', updateNutritionChart);
-            document.getElementById('drinkSelect').addEventListener('change', updateNutritionChart);
+          const combinedSugarSpec = await loadJSON('combinedsugar.json');
+          const combinedSugarResult = await vegaEmbed('#combined-sugar-container', combinedSugarSpec);
+          combinedSugarView = combinedSugarResult.view;
 
-        } catch (error) {
-            console.error('Error loading visualizations:', error);
-        }
+          populateDropdowns(nutritionData);
+
+          treeView.addSignalListener('Food', async function(name, value) {
+              if (value) {
+                  const selectedItem = nutritionData.find(item => item.name === value);
+                  if (selectedItem) {
+                      // Reset all dropdowns first
+                      document.getElementById('mealSelect').value = "";
+                      document.getElementById('sideSelect').value = "";
+                      document.getElementById('drinkSelect').value = "";
+
+                      // Set the appropriate dropdown based on the Type
+                      if (selectedItem.Type) {
+                          if (selectedItem.Type.includes('A La Carte')) {
+                              document.getElementById('mealSelect').value = value;
+                          } else if (selectedItem.Type.includes('Sides')) {
+                              document.getElementById('sideSelect').value = value;
+                          } else if (selectedItem.Type.includes('Beverages')) {
+                              document.getElementById('drinkSelect').value = value;
+                          }
+                      }
+                      updateNutritionChart();
+                  }
+              }
+          });
+
+          document.getElementById('mealSelect').addEventListener('change', updateNutritionChart);
+          document.getElementById('sideSelect').addEventListener('change', updateNutritionChart);
+          document.getElementById('drinkSelect').addEventListener('change', updateNutritionChart);
+
+          // Initial update
+          updateNutritionChart();
+          
+
+      } catch (error) {
+          console.error('Error loading visualizations:', error);
+      }
     }
 
     function populateDropdowns(data) {
@@ -164,6 +242,7 @@ document.addEventListener('DOMContentLoaded', function() {
         mealSelect.innerHTML = '<option value="">None</option>';
         sideSelect.innerHTML = '<option value="">None</option>';
         drinkSelect.innerHTML = '<option value="">None</option>';
+
 
         const categories = {
             meals: data.filter(item => item.Type && item.Type.includes('A La Carte')),
@@ -185,9 +264,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const option = new Option(item.name, item.name);
             drinkSelect.add(option);
         });
+
+        // Set the default to "Big Mac" for the meal
+        mealSelect.value = "Big Mac";
     }
 
     initVisualizations();
+    
+
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -234,11 +318,15 @@ async function initializeMap() {
   try {
       // Fetch the map configuration
       const response = await fetch('w9.json');
+      const response2 = await fetch('revenue.json');
       const mapSpec = await response.json();
+      const revenueSpec = await response2.json();
 
       // Initialize the visualization
       const result = await vegaEmbed('#map', mapSpec);
       vegaView = result.view;
+      const result2 = await vegaEmbed('#area', revenueSpec);
+      revenueView = result2.view;
 
       // Add click listeners to timeline items
       const timelineItems = document.querySelectorAll('.timeline-item');
@@ -248,12 +336,13 @@ async function initializeMap() {
               if (yearElement) {
                   const year = yearElement.textContent;
                   updateMapPoint(year);
+                  updateRevenueView(year);
               }
           });
       });
 
   } catch (error) {
-      console.error('Error initializing map:', error);
+      console.error('Error initializing viz:', error);
   }
 }
 

@@ -1,7 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 700,
-    "height": 300,
+    "height": 280,
+
+    "padding": {"left": 106, "right": 10, "top": 5},
     "data": {
       "name": "nutrition"
     },
@@ -16,10 +18,11 @@
       "x": {
         "field": "value",
         "type": "quantitative",
-        "title": "Amount",
+        "title": "Amount (g)",
         "axis": {
           "labelColor": "#C8102E",
-          "titleColor": "#C8102E"
+          "titleColor": "#C8102E",
+          "tickCount": 10
         }
       },
       "y": {
@@ -27,7 +30,9 @@
         "type": "nominal",
         "title": null,
         "axis": {
-          "labelColor": "#C8102E"
+          "labelColor": "#C8102E",
+          "labelFontSize": 13,
+          "tickCount": 10
         }
       },
       "tooltip": [

@@ -1,62 +1,73 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 700,
+  "width": 905,
   "height": 450,
   "projection": {"type": "equalEarth"},
+  "background": "#c2dcf9", 
+  "config": {
+    "view": {"stroke": "transparent"}
+  },
   "layer": [
-      {
-          "data": {
-              "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
-              "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
-          },
-          "transform": [
-              {
-                  "lookup": "properties.NAME",
-                  "from": {
-                      "data": {
-                          "url": "https://raw.githubusercontent.com/tay1203/Homework-Week10/refs/heads/main/mcd.csv"
-                      },
-                      "key": "country",
-                      "fields": ["branches", "population"]
-                  }
-              }
-          ],
-          "mark": {"type": "geoshape", "stroke": "lightgrey", "strokeWidth": 0.5},
-          "encoding": {
-              "color": {
-                  "field": "branches",
-                  "type": "quantitative",
-                  "scale": {
-                      "type": "threshold",
-                      "domain": [0, 1, 100, 500, 1000, 5000, 10000],
-                      "range": ["#d3d3d3", "#ffeda0", "#feb24c", "#fd8d3c", "#f03b20", "#bd0026", "#800026"]
-                  },
-                  "legend": {
-                      "title": "Number of Branches",
-                      "values": [0, 100, 500, 1000, 2000, 10000]
-                  }
-              },
-              "tooltip": [
-                  {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-                  {"field": "branches", "type": "quantitative", "title": "Total Branches"}
-              ]
-          }
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/js/ne_110m_admin_0_countries.topojson",
+        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
       },
-      {
-          "data": {
-              "name": "pointData"
-          },
-          "mark": {
-              "type": "circle",
-              "size": 100,
-              "color": "black",
-              "opacity": 0.8
-          },
-          "encoding": {
-              "longitude": {"field": "lng", "type": "quantitative"},
-              "latitude": {"field": "lat", "type": "quantitative"},
-              "tooltip": {"field": "description"}
+      "transform": [
+        {
+          "lookup": "properties.NAME",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/tay1203/Homework-Week10/refs/heads/main/mcd.csv"
+            },
+            "key": "country",
+            "fields": ["branches", "population"]
           }
+        }
+      ],
+      "mark": {"type": "geoshape", "stroke": "lightgray", "strokeWidth": 0.5},
+      "encoding": {
+        "color": {
+          "field": "branches",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [0, 1, 100, 500, 1000, 5000, 10000],
+            "range": ["#d3d3d3", "#ffeda0", "#feb24c", "#fd8d3c", "#f03b20", "#bd0026", "#800026"]
+          },
+          "legend": {
+            "title": "Num. of Branches",
+            "values": [0, 100, 500, 1000, 2000, 10000],
+            "orient": "none",              
+            "legendX": 20,                
+            "legendY": 15,                 
+            "direction": "vertical",
+            "labelFontSize": 12,
+            "titleFontSize": 12
+            
+          }
+        },
+        "tooltip": [
+          {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+          {"field": "branches", "type": "quantitative", "title": "Total Branches"}
+        ]
       }
+    },
+    {
+      "data": {
+        "name": "pointData"
+      },
+      "mark": {
+        "type": "circle",
+        "size": 100,
+        "color": "black",
+        "opacity": 0.8
+      },
+      "encoding": {
+        "longitude": {"field": "lng", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "tooltip": {"field": "description"}
+      }
+    }
   ]
 }
