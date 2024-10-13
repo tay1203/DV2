@@ -40,7 +40,7 @@
         "Salt": 1.5,
         "Sugar": 5.9,
         "Type": "A La Carte",
-        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/beefburger.png"
+        "imageURL": "https://github.com/tay1203/DV2/blob/main/images/beefburger.png?raw=true"
     },
     {
         "id": "cheeseburger",
