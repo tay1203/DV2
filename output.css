@@ -860,6 +860,10 @@ video {
   height: 500px;
 }
 
+.h-\[340px\] {
+  height: 340px;
+}
+
 .max-h-full {
   max-height: 100%;
 }
@@ -959,6 +963,10 @@ video {
 
 .items-center {
   align-items: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
 }
 
 .justify-center {
@@ -1142,6 +1150,18 @@ video {
 
 .pt-5 {
   padding-top: 1.25rem;
+}
+
+.pr-5 {
+  padding-right: 1.25rem;
+}
+
+.pr-10 {
+  padding-right: 2.5rem;
+}
+
+.pr-8 {
+  padding-right: 2rem;
 }
 
 .text-center {

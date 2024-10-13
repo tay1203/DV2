@@ -40,6 +40,8 @@
           "axis": {
             "labelColor": "#C8102E",
             "titleColor": "#C8102E",
+            "labelFontSize": 13,
+            "titleFontSize": 14,
             "tickCount": 10
           }
         },

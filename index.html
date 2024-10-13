@@ -365,11 +365,14 @@
             </div>
             <!-- Tree Diagram in a vertical column -->
             <div class="grid grid-cols-12 bg-white rounded-xl p-4 mt-6 mb-10 gap-6">
-                <div id="tree-container" class="col-span-4"></div>
+                <div class="col-span-4">
+                    <h5 class="text-xl font-bold text-center p-4">Menu</h5>
+                    <div  id="tree-container"></div>
+                </div>
                 <div class="col-span-8 grid grid-rows-3 gap-y-4">
                     <div class="bg-white row-span-1"> 
                         <!-- Meal Dropdown -->
-                        <h5 class="text-lg font-bold text-center p-4">Choose Your Meal!</h5>
+                        <h5 class="text-xl font-bold text-center p-4">Choose Your Meal!</h5>
                         <div class="grid grid-cols-3 gap-4">
                             <div class="p-4">
                                 <div class="flex items-center justify-center bg-gray-200 rounded-xl p-5 w-full h-[250px]">
@@ -407,13 +410,14 @@
                         </div>
                     </div>
                     <div class="row-span-2">
-                        <div class="h-[330px]">
+                        <h5 class="text-xl font-bold text-center p-4">Nutrition Information</h5>
+                        <div class="h-[340px]">
                             <div id="nutrition-container"></div>
                             <div id="combined-container"></div>
                         </div>
                         
                         <div class="bg-white">
-                            <div class="flex justify-center space-x-12">
+                            <div class="flex justify-end space-x-10 pr-8">
                                 <div id="calories-container" class="w-[210px] h-[210px]"></div>
                                 <div id="sugar-container" class="w-[210px] h-[210px]"></div>
                                 <div id="salt-container" class="w-[210px] h-[210px]"></div>

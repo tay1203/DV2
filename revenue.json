@@ -5,6 +5,12 @@
   "data": {
     "url": "https://raw.githubusercontent.com/tay1203/Homework-Week10/refs/heads/main/revenue.csv"
   },
+  "transform": [
+    {
+      "calculate": "'All values are in millions of USD'",
+      "as": "note"
+    }
+  ],
   "layer": [
     {
       "mark": {"type": "area", "line": true},
@@ -14,8 +20,8 @@
           "type": "temporal",
           "title": "Year",
           "axis": {
-            "labelFontSize": 14,  
-            "titleFontSize": 16   
+            "labelFontSize": 14,
+            "titleFontSize": 16
           }
         },
         "y": {
@@ -25,8 +31,8 @@
           "title": "Revenue (in millions USD)",
           "stack": "zero",
           "axis": {
-            "labelFontSize": 14,  
-            "titleFontSize": 16   
+            "labelFontSize": 14,
+            "titleFontSize": 16
           }
         },
         "color": {
@@ -63,10 +69,30 @@
         "x": {"field": "Year", "type": "temporal"},
         "opacity": {"value": 0},
         "tooltip": [
-          {"field": "Year", "type": "temporal", "title": "Year"},
-          {"field": "Company-operated sales", "type": "quantitative", "title": "Company-operated sales", "format": ",.0f"},
-          {"field": "Franchised revenues", "type": "quantitative", "title": "Franchised revenues", "format": ",.0f"},
-          {"field": "Total Revenue", "type": "quantitative", "title": "Total Revenue", "format": ",.0f"}
+          {
+            "field": "Year",
+            "type": "temporal",
+            "title": "Year",
+            "timeUnit": "year"
+          },
+          {
+            "field": "Company-operated sales",
+            "type": "quantitative",
+            "title": "Company-operated sales",
+            "format": ".0f"
+          },
+          {
+            "field": "Franchised revenues",
+            "type": "quantitative",
+            "title": "Franchised revenues",
+            "format": ".0f"
+          },
+          {
+            "field": "Total Revenue",
+            "type": "quantitative",
+            "title": "Total Revenue",
+            "format": ".0f"
+          }
         ]
       },
       "params": [{

@@ -156,7 +156,7 @@
     },
     {
         "id": "bubur_ayam_mcd_large",
-        "name": "Bubur Ayam McD (Large)",
+        "name": "Bubur Ayam McD",
         "parent": "chicken",
         "Serving Size": 414,
         "Energy": 186,
@@ -184,7 +184,7 @@
     },
     {
         "id": "gcb_grilled_chicken_burger",
-        "name": "GCB - Grilled Chicken Burger",
+        "name": "Grilled Chicken Burger",
         "parent": "burger",
         "Serving Size": 185,
         "Energy": 393,
@@ -296,7 +296,7 @@
     },
     {
         "id": "hotcakes_with_syrup_and_margarine",
-        "name": "Hotcakes (with syrup and margarine)",
+        "name": "Hotcakes",
         "parent": "breakfast",
         "Serving Size": 100,
         "Energy": 226,
@@ -310,7 +310,7 @@
     },
     {
         "id": "french_fries_medium",
-        "name": "French Fries (Medium)",
+        "name": "French Fries",
         "parent": "sides",
         "Serving Size": 116,
         "Energy": 339,
@@ -324,7 +324,7 @@
     },
     {
         "id": "corn_cup_large",
-        "name": "Corn Cup (Large)",
+        "name": "Corn Cup",
         "parent": "sides",
         "Serving Size": 125,
         "Energy": 86,
@@ -338,7 +338,7 @@
     },
     {
         "id": "coke_medium",
-        "name": "Coke (Medium)",
+        "name": "Coke",
         "parent": "beverages",
         "Serving Size": 364,
         "Energy": 124,
@@ -352,7 +352,7 @@
     },
     {
         "id": "sprite_medium",
-        "name": "Sprite (Medium)",
+        "name": "Sprite",
         "parent": "beverages",
         "Serving Size": 364,
         "Energy": 62,
@@ -366,7 +366,7 @@
     },
     {
         "id": "minute_maid_orange_juice_medium",
-        "name": "Minute Maid Orange Juice (Medium)",
+        "name": "Minute Maid Orange Juice",
         "parent": "beverages",
         "Serving Size": 427,
         "Energy": 141,
@@ -380,7 +380,7 @@
     },
     {
         "id": "iced_lemon_tea_medium",
-        "name": "Iced Lemon Tea (Medium)",
+        "name": "Iced Lemon Tea",
         "parent": "beverages",
         "Serving Size": 364,
         "Energy": 58.6,
@@ -394,7 +394,7 @@
     },
     {
         "id": "iced_milo_medium",
-        "name": "Iced MILO (Medium)",
+        "name": "Iced MILO",
         "parent": "beverages",
         "Serving Size": 364,
         "Energy": 208,
@@ -408,7 +408,7 @@
     },
     {
         "id": "sundae_chocolate",
-        "name": "Sundae (Chocolate)",
+        "name": "Chocolate Sundae",
         "parent": "sides",
         "Serving Size": 174,
         "Energy": 324,
@@ -422,7 +422,7 @@
     },
     {
         "id": "sundae_strawberry",
-        "name": "Sundae (Strawberry)",
+        "name": "Strawberry Sundae",
         "parent": "sides",
         "Serving Size": 177,
         "Energy": 280,
