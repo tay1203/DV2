@@ -15,9 +15,9 @@ Spicy Chicken McDeluxe,213,531,50.8,23.2,25.7,3.6,5.2,A La Carte, SpicyChickenMc
 Chicken McNuggets 6 pcs,92,254,16.1,13.2,15.3,1.3,0,A La Carte, ChickenMcNuggets6pcs, Chicken
 Ayam Goreng McD Regular,per 100g,260,15.8,16.2,14.7,1.3,0,A La Carte, AyamGorengMcDRegular, Chicken
 Ayam Goreng McD Spicy,per 100g,286,11.8,19.2,18.1,1.6,0,A La Carte, AyamGorengMcDSpicy, Chicken
-Bubur Ayam McD (Large),414,186,23.3,12,5,2.5,1,A La Carte, BuburAyamMcD, Chicken
+Bubur Ayam McD,414,186,23.3,12,5,2.5,1,A La Carte, BuburAyamMcD, Chicken
 Nasi Lemak McD,345,593,81.4,18.6,21.4,3.9,6.2,A La Carte, NasiLemakMcD, Chicken
-GCB - Grilled Chicken Burger,185,393,35.3,22.2,17.7,2.5,6.8,A La Carte, GCB, Burgers
+Grilled Chicken Burger,185,393,35.3,22.2,17.7,2.5,6.8,A La Carte, GCB, Burgers
 Filet-O-Fish,139,341,40.2,15,13.1,1.4,4.6,A La Carte, FiletOFish, Burgers
 Hash Browns,56,156,15.6,1.2,9.9,0.8,0.1,Breakfast, HashBrowns, Breakfast
 Crispy Chicken McMuffin,143,394,37.6,16.2,19.4,2,2.9,Breakfast, CrispyChickenMcMuffin, Breakfast
@@ -25,16 +25,16 @@ Crispy Chicken McMuffin with Egg,194,476,38.8,23.1,24.9,2.2,3,Breakfast, CrispyC
 Sausage McMuffin,119,288,29.9,16.7,11.2,1.8,2.5,Breakfast, SausageMcMuffin, Breakfast
 Sausage McMuffin with Egg,170,371,31.1,23.7,16.7,2,2.6,Breakfast, SausageMcMuffinwithEgg, Breakfast
 Big Breakfast,260,558,46.5,28.5,28.6,2.6,2.2,Breakfast, BigBreakfast, Breakfast
-Hotcakes (with syrup and margarine),100,226,37.4,5.9,6.3,1,8.4,Breakfast,  Hotcakeswithsyrupandmargarine, Breakfast
-French Fries (Medium),116,339,45.2,4.1,15.7,0.2,0.2,Sides, FrenchFriesMedium, Sides
-Corn Cup (Large),125,86,14,5,1.1,0.4,6.1,Sides, CornCupLarge, Sides
-Coke (Medium),364,124,30.9,0,0,0,32,Beverages, CokeMedium, Beverages
-Sprite (Medium),364,62,15.3,0.1,0,0.1,15.3,Beverages, SpriteMedium, Beverages
-Minute Maid Orange Juice (Medium),427,141,32,3,0.1,0,30,Beverages, MinuteMaidOrangeJuiceMedium, Beverages
-Iced Lemon Tea (Medium),364,58.6,14.6,0.1,0,0,13.9,Beverages, IcedLemonTeaMedium, Beverages
-Iced MILO (Medium),364,208,35,5.8,5,0.2,26.1,Beverages, IcedMILOMedium, Beverages
-Sundae (Chocolate),174,324,51.1,4.8,10.9,0.5,49.7,Sides, SundaeChocolate, Sides
-Sundae (Strawberry),177,280,51.2,3.3,6.8,0.3,50.7,Sides, SundaeStrawberry, Sides
+Hotcakes,100,226,37.4,5.9,6.3,1,8.4,Breakfast,  Hotcakeswithsyrupandmargarine, Breakfast
+French Fries,116,339,45.2,4.1,15.7,0.2,0.2,Sides, FrenchFriesMedium, Sides
+Corn Cup,125,86,14,5,1.1,0.4,6.1,Sides, CornCupLarge, Sides
+Coke,364,124,30.9,0,0,0,32,Beverages, CokeMedium, Beverages
+Sprite,364,62,15.3,0.1,0,0.1,15.3,Beverages, SpriteMedium, Beverages
+Minute Maid Orange Juice,427,141,32,3,0.1,0,30,Beverages, MinuteMaidOrangeJuiceMedium, Beverages
+Iced Lemon Tea,364,58.6,14.6,0.1,0,0,13.9,Beverages, IcedLemonTeaMedium, Beverages
+Iced MILO,364,208,35,5.8,5,0.2,26.1,Beverages, IcedMILOMedium, Beverages
+Chocolate Sundae,174,324,51.1,4.8,10.9,0.5,49.7,Sides, SundaeChocolate, Sides
+Strawberry Sundae,177,280,51.2,3.3,6.8,0.3,50.7,Sides, SundaeStrawberry, Sides
 Sundae Cone,85,134,22,2.3,4.2,0.2,18.4,Sides, SundaeCone, Sides
 ChocoTop,96,203,27,2.9,9.3,0.2,22.7,Sides, ChocoTop, Sides
 Oreo McFlurry,159,304,46.3,4.7,11.3,0.5,38.9,Sides, OreoMcFlurry, Sides
