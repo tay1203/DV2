@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "description": "Interactive hierarchical tree visualization of McDonald's menu",
-  "width": 300,
-  "height": 800,
+  "width": 280,
+  "height": 950,
   
   "signals": [
     {
@@ -61,7 +61,7 @@
         {
           "type": "tree",
           "method": {"signal": "layout"},
-          "size": [{"signal": "height"}, {"signal": "width - 140"}],
+          "size": [{"signal": "height"}, {"signal": "width - 110"}],
           "separation": {"signal": "separation"},
           "as": ["y", "x", "depth", "children"]
         }
@@ -103,14 +103,6 @@
           "path": {"field": "path"},
           "stroke": {"value": "#ccc"},
           "strokeOpacity": {"value": 0.6}
-        },
-        "hover": {
-          "stroke": {"value": "#999"},
-          "strokeOpacity": {"value": 1}
-        },
-        "leave": {
-          "stroke": {"value": "#ccc"},
-          "strokeOpacity": {"value": 0.6}
         }
       }
     },
@@ -132,14 +124,6 @@
           "tooltip": {
             "signal": "datum.name + (datum.children ? ' (Category)' : ' (Item)')"
           }
-        },
-        "hover": {
-          "size": {"value": 300},
-          "strokeWidth": {"value": 3}
-        },
-        "leave": {
-          "size": {"value": 180},
-          "strokeWidth": {"value": 2}
         }
       }
     },
@@ -149,10 +133,10 @@
       "encode": {
         "enter": {
           "text": {"field": "name"},
-          "fontSize": {"value": 12},
+          "fontSize": {"value": 13},
           "fontWeight": {"value": "600"},
           "baseline": {"value": "middle"},
-          "font": {"value": "Arial"}
+          "font": {"value": "Poppins"}
         },
         "update": {
           "x": {"field": "x"},
@@ -161,14 +145,6 @@
           "align": {"signal": "datum.children ? 'right' : 'left'"},
           "opacity": {"signal": "labels ? 1 : 0"},
           "fill": {"value": "#333"}
-        },
-        "hover": {
-          "fill": {"value": "#000"},
-          "fontWeight": {"value": "bold"}
-        },
-        "leave": {
-          "fill": {"value": "#333"},
-          "fontWeight": {"value": "normal"}
         }
       }
     }

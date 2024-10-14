@@ -379,3 +379,31 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+  const insights = [
+    "The Grilled Chicken Burger (GCB) is a healthier option, providing over 20 grams of protein with fewer calories compared to most other burger choices.",
+    "Swap out fries for a corn cup, which is lower in fat and adds fiber to your meal.",
+    "Watch out for sugary beverages! A medium cup of orange juice contains around 30 grams of sugar—comparable to a soda.",
+    "McDonald's Sausage McMuffin with Egg is a balanced breakfast, with under 400 calories and 16 grams of protein, making it a good start to the day.",
+    "Some of the items are high in sodium. Over intake can impact your heart health."
+  ];
+
+  let currentIndex = 0;
+  const insightElement = document.getElementById("insight");
+  const nextButton = document.getElementById("next-btn");
+
+  // Show the first insight when the page loads
+  insightElement.innerText = insights[currentIndex];
+
+  // Show the next insight when the Next button is clicked
+  nextButton.addEventListener("click", () => {
+    currentIndex++;
+    if (currentIndex < insights.length) {
+      insightElement.innerText = insights[currentIndex];
+    } else {
+      currentIndex = 0;  // Restart from the first insight
+      insightElement.innerText = insights[currentIndex];
+    }
+  });
+});

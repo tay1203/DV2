@@ -68,8 +68,7 @@
               "baseline": "middle",
               "fontSize": 40,
               "font": "Arial",
-              "dx": -10,
-              "dy": 2
+              "dx": -10
             },
             "encoding": {
               "text": {
@@ -88,8 +87,7 @@
               "baseline": "middle",
               "fontSize": 35,
               "font": "Arial",
-              "dx": 28,
-              "dy": 2
+              "dx": 28
             },
             "encoding": {
               "text": { "value": "%" },

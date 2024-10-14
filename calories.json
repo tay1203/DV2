@@ -1,10 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 160,
+  "width": 250,
   "height": 190,
   "padding": {"top": 20},
   "config": {
-    "view": {"stroke": "transparent"}
+    "view": {"stroke": "transparent"},
+    "background": null
   },
   "data": {
     "url": "https://raw.githubusercontent.com/tay1203/DV2/refs/heads/main/nutrition.csv"
@@ -17,6 +18,11 @@
   ],
   "transform": [
     { "filter": "datum.Food == Food" },
+
+    {
+      "calculate": "datum['Energy (kcal)']",
+      "as": "Contained Calories"
+    },
     {
       "calculate": "2130 - datum['Energy (kcal)']",
       "as": "Remaining Calories"
@@ -28,52 +34,17 @@
   ],
   "layer": [
     {
-      "transform": [
-        {
-          "fold": ["Energy (kcal)", "Remaining Calories"],
-          "as": ["Category", "Value"]
-        }
-      ],
-      "mark": {
-        "type": "arc",
-        "innerRadius": 60,
-        "tooltip": true
-      },
-      "encoding": {
-        "theta": {
-          "field": "Value",
-          "type": "quantitative",
-          "sort": "ascending"
-        },
-        "color": {
-          "field": "Category",
-          "type": "nominal",
-          "scale": {
-            "domain": ["Energy (kcal)", "Remaining Calories"],
-            "range": ["#C8102E", "#b5b5b5"]
-          },
-          "legend": null
-        },
-        "order": { "field": "Category", "sort": "ascending" },
-        "tooltip": [
-          { "field": "Category", "type": "nominal" },
-          { "field": "Value", "type": "quantitative", "format": ".2f" }
-        ]
-      }
-    },
-    {
       "mark": {
         "type": "text",
         "align": "center",
         "baseline": "middle",
-        "fontSize": 40,
+        "fontSize": 60,
         "font": "Arial",
-        "dx": -10,
-        "dy": 2
+        "dx": -60
       },
       "encoding": {
         "text": {
-          "field": "Percentage",
+          "field": "Contained Calories",
           "type": "quantitative",
           "format": ".0f",
           "formatType": "number"
@@ -88,55 +59,29 @@
         "baseline": "middle",
         "fontSize": 35,
         "font": "Arial",
-        "dx": 28,
-        "dy": 2
+        "dx": 28
+    
       },
       "encoding": {
-        "text": { "value": "%" },
+        "text": { "value": "kcal" },
         "y": { "value": 80 }
       }
     },
     {
       "mark": {
         "type": "text",
-        "align": "center",
+        "align": "right",
         "baseline": "middle",
-        "fontSize": 12,
+        "fontSize": 18,
         "font": "Arial",
-        "dy": 8
+        "dx": 25,
+        "dy": 45
       },
       "encoding": {
-        "text": { "value": "of Daily" },
-        "y": { "value": 100 }
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "center",
-        "baseline": "middle",
-        "fontSize": 12,
-        "font": "Arial",
-        "dy": 6.5
-      },
-      "encoding": {
-        "text": { "value": "Recommended" },
-        "y": { "value": 115 }
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "center",
-        "baseline": "middle",
-        "fontSize": 12,
-        "font": "Arial",
-        "dy": 5
-      },
-      "encoding": {
-        "text": { "value": "Calories" },
-        "y": { "value": 130 }
+        "text": { "value": "per serving" },
+        "y": { "value": 80 }
       }
     }
+
   ]
 }

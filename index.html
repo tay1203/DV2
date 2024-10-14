@@ -61,19 +61,33 @@
         }
 
         .timeline-item {
-        transition: all 0.3s ease;
-    }
+            transition: all 0.3s ease;
+        }
 
-    .timeline-item.active .relative.rounded-xl {
-        background-color: #ffd700;
-        transform: scale(1.05);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+        .timeline-item.active .relative.rounded-xl {
+            background-color: #ffd700;
+            transform: scale(1.05);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #next-btn {
+            padding: 3px 6px;
+            background-color: #ffffff;
+            border: 1px solid #a9a9a9;
+            color: #3d3d3d;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        #next-btn:hover {
+            background-color: #aaaaaa;
+        }
 
     </style>
 </head>
 
-<body class="bg-gradient-to-t from-gray-900 to-red-700 font-sans">
+<body class="bg-gradient-to-t from-gray-900 to-red-600 font-sans">
     <h1 class="text-4xl lg:text-6xl text-center text-yellow-400 font-bold p-5">I'm Lovin It !</h1>
     <div class="background-container rounded-xl min-h-screen flex flex-row items-center">
     <div class="content-container w-11/12 m-auto">
@@ -364,74 +378,117 @@
                 </div>
             </div>
             <!-- Tree Diagram in a vertical column -->
-            <div class="grid grid-cols-12 bg-white rounded-xl p-4 mt-6 mb-10 gap-6">
-                <div class="col-span-4">
-                    <h5 class="text-xl font-bold text-center p-4">Menu</h5>
-                    <div  id="tree-container"></div>
-                </div>
-                <div class="col-span-8 grid grid-rows-3 gap-y-4">
-                    <div class="bg-white row-span-1"> 
-                        <!-- Meal Dropdown -->
-                        <h5 class="text-xl font-bold text-center p-4">Choose Your Meal!</h5>
-                        <div class="grid grid-cols-3 gap-4">
-                            <div class="p-4">
-                                <div class="flex items-center justify-center bg-gray-200 rounded-xl p-5 w-full h-[250px]">
-                                    <img id="mealImage" src="" alt="Selected Food Image" class="w-full h-full object-contain">
-                                </div>
-                            
-                                <label class="block text-sm font-medium text-gray-700 m-2">Select Meal</label>
-                                <select id="mealSelect" class="w-11/12 p-2 border border-gray-300 rounded-md">
-                                    <option value="">None</option>
-                                </select>
-                            </div>
-                            
-                            <div class="p-4">
-                                <div class="flex items-center justify-center bg-gray-200 rounded-xl p-5 w-full h-[250px]">
-                                    <img id="sideImage" src="" alt="Selected Food Image" class="w-full h-full object-contain">
-                                </div>
-                            
-                                <label class="block text-sm font-medium text-gray-700 m-2">Select Side</label>
-                                <select id="sideSelect" class="w-11/12 p-2 border border-gray-300 rounded-md">
-                                    <option value="">None</option>
-                                </select>
-                            </div>
-                            
-                            <div class="p-4">
-                                <div class="flex items-center justify-center bg-gray-200 rounded-xl p-5 h-[250px]">
-                                    <img id="drinkImage" src="" alt="Selected Food Image" class="w-full h-full object-contain">
-                                </div>
-                            
-                                <label class="block text-sm font-medium text-gray-700 m-2">Select Drink</label>
-                                <select id="drinkSelect" class="w-11/12 p-2 border border-gray-300 rounded-md">
-                                    <option value="">None</option>
-                                </select>
-                            </div>
-                            
+            <div class="relative ">
+                <div class="bg-white rounded-xl">
+
+                
+                    <div class="relative grid grid-cols-12 p-4 mt-6 mb-10 gap-6">
+                        <div class="col-span-4">
+                            <h5 class="text-xl font-bold text-center p-4">Menu</h5>
+                            <div  id="tree-container"></div>
                         </div>
-                    </div>
-                    <div class="row-span-2">
-                        <h5 class="text-xl font-bold text-center p-4">Nutrition Information</h5>
-                        <div class="h-[340px]">
-                            <div id="nutrition-container"></div>
-                            <div id="combined-container"></div>
-                        </div>
-                        
-                        <div class="bg-white">
-                            <div class="flex justify-end space-x-10 pr-8">
-                                <div id="calories-container" class="w-[210px] h-[210px]"></div>
-                                <div id="sugar-container" class="w-[210px] h-[210px]"></div>
-                                <div id="salt-container" class="w-[210px] h-[210px]"></div>
-                                <div id="combined-calories-container"></div>
-                                <div id="combined-sugar-container"></div>
-                                <div id="combined-salt-container"></div>
+                        <div class="col-span-8 grid grid-rows-3 gap-y-4">
+                            <div class="bg-white row-span-1 p-4"> 
+                                <!-- Meal Dropdown -->
+                                <h5 class="text-2xl font-bold text-center pb-2 pt-2 mb-4 mx-4 bg-amber-300 rounded-full">Choose Your Meal!</h5>
+                                <div class="grid grid-cols-3 gap-4">
+                                    <div class="p-4">
+                                        <div class="flex items-center justify-center bg-gray-200 rounded-xl p-5 w-full h-[250px]">
+                                            <img id="mealImage" src="" alt="Selected Food Image" class="w-full h-full object-contain">
+                                        </div>
+                                    
+                                        <label class="block text-sm font-medium text-gray-700 m-2">Select Meal</label>
+                                        <select id="mealSelect" class="w-11/12 p-2 border border-gray-300 rounded-md">
+                                            <option value="">None</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="p-4">
+                                        <div class="flex items-center justify-center bg-gray-200 rounded-xl p-5 w-full h-[250px]">
+                                            <img id="sideImage" src="" alt="Selected Food Image" class="w-full h-full object-contain">
+                                        </div>
+                                    
+                                        <label class="block text-sm font-medium text-gray-700 m-2">Select Side</label>
+                                        <select id="sideSelect" class="w-11/12 p-2 border border-gray-300 rounded-md">
+                                            <option value="">None</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="p-4">
+                                        <div class="flex items-center justify-center bg-gray-200 rounded-xl p-5 h-[250px]">
+                                            <img id="drinkImage" src="" alt="Selected Food Image" class="w-full h-full object-contain">
+                                        </div>
+                                    
+                                        <label class="block text-sm font-medium text-gray-700 m-2">Select Drink</label>
+                                        <select id="drinkSelect" class="w-11/12 p-2 border border-gray-300 rounded-md">
+                                            <option value="">None</option>
+                                        </select>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <!-- Nutrition Chart and Donut Charts in a row -->  
+                            <div class="row-span-2 rounded-xl">
+                                <h5 class="text-xl font-bold text-center pb-3">Nutrition Information</h5>
+                                <div class="h-[330px]">
+                                    <div id="nutrition-container"></div>
+                                    <div id="combined-container"></div>
+                                </div>
                                 
+                                <div class="bg-white">
+                                    <div class="flex justify-end space-x-6 pr-8">
+                                        <div id="calories-container" class="w-[210px] h-[210px]"></div>
+                                        <div id="sugar-container" class="w-[210px] h-[210px]"></div>
+                                        <div id="salt-container" class="w-[210px] h-[210px]"></div>
+                                        <div id="combined-calories-container"></div>
+                                        <div id="combined-sugar-container"></div>
+                                        <div id="combined-salt-container"></div>
+                                    </div>
+                                    <h6 class="text-xs text-zinc-600 text-center pt-2 ml-12 pl-4">% Recommended Nutrient Intake (RNI) are based on 2130kcal calorie, 36g sugar, 5g salt diet for Adult</h6>
+                                </div>
                             </div>
+                        </div> 
+                        </div>
+                </div>
+                <div class="absolute bottom-28 left-[30%]">
+                    
+                    <div id="dialog-box" class="bg-white px-14 py-10 shadow-sm w-[450px] h-[200px] border border-gray-200 text-[15px] rounded-full z-50">
+                        <p id="insight"></p>
+                        <div class="flex justify-end">
+                            <button id="next-btn">Next</button>
                         </div>
                     </div>
                 </div>
+                <div class="absolute flex flex-col justify-end right-5 bottom-5 w-[300px]">
+                    <p class="text-sm text-justify">Author: Tay Ming Hui</p>
+                    <p class="text-sm text-justify">Data Source: McDonald's Official Website</p>
+                    <p class="text-sm text-justify">Date Completion: 14-10-2024</p>
+                </div>
+            
+                <svg class="absolute bottom-0 left-0 w-full h-full pointer-events-none">
+                    <line 
+                        x1="22%" y1="83%" 
+                        x2="30%" y2="84%" 
+                        stroke="#cbcbcb" 
+                        stroke-width="0.8"
+                    />
+                </svg>
+                <svg class="absolute bottom-0 left-0 w-full h-full pointer-events-none">
+                    <line 
+                        x1="22%" y1="83%" 
+                        x2="31.5%" y2="81%" 
+                        stroke="#cbcbcb" 
+                        stroke-width="0.8"
+                    />
+                </svg>
+                <div class="absolute left-14 bottom-8 w-[420px]">
+                    <img src="https://github.com/tay1203/DV2/blob/main/images/ronald.png?raw=true" alt="Ronald Mcdonald">
+                </div>
+                
+            </div>
             </div>
             
-                <!-- Nutrition Chart and Donut Charts in a row -->               
+                             
             </div>
         </div>
     </body>
