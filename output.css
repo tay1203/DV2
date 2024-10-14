@@ -930,6 +930,14 @@ video {
   height: 325px;
 }
 
+.h-\[150px\] {
+  height: 150px;
+}
+
+.h-\[180px\] {
+  height: 180px;
+}
+
 .min-h-full {
   min-height: 100%;
 }
