@@ -143,8 +143,8 @@ document.addEventListener('DOMContentLoaded', function() {
       
       combinedNutritionView.data('nutrition', combinedData).run();
       combinedCaloriesView.data('nutrition', cal).run();
-      combinedSaltView.data('nutrition', [combinedData[1]]).run();
-      combinedSugarView.data('nutrition', [combinedData[2]]).run();
+      combinedSaltView.data('nutrition', [combinedData[0]]).run();
+      combinedSugarView.data('nutrition', [combinedData[1]]).run();
     }
   
   }

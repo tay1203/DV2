@@ -15,11 +15,11 @@
         "as": "Contained Salt"
         },
       {
-        "calculate": "max(0, 5 - datum.value)",
+        "calculate": "max(0, 5 - Contained Salt)",
         "as": "Remaining Salt"
       },
       {
-        "calculate": "datum.value / 5 * 100",
+        "calculate": "Contained Salt / 5 * 100",
         "as": "Percentage"
       },
       {
