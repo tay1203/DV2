@@ -3,7 +3,7 @@
     "width": 700,
     "height": 280,
 
-    "padding": {"left": 106, "right": 10, "top": 5},
+    "padding": {"left": 111, "right": 10, "top": 5},
     "data": {
       "name": "nutrition"
     },
@@ -12,7 +12,8 @@
       "tooltip": true,
       "color": "#FFCC00",
       "stroke": "#C8102E",
-      "strokeWidth": 1
+      "strokeWidth": 1,
+      "size": 35
     },
     "encoding": {
       "x": {
