@@ -18,10 +18,14 @@
         "x": {
           "field": "Year",
           "type": "temporal",
-          "title": "Year",
+          "title": null,
           "axis": {
             "labelFontSize": 14,
-            "titleFontSize": 16
+            "titleFontSize": 16,
+            "grid": true, 
+            "gridColor": "lightgray", 
+            "gridOpacity": 0.5, 
+            "gridWidth": 1 
           }
         },
         "y": {
@@ -32,7 +36,12 @@
           "stack": "zero",
           "axis": {
             "labelFontSize": 14,
-            "titleFontSize": 16
+            "titleFontSize": 16,
+            "grid": true, 
+            "gridColor": "lightgray", 
+            "gridOpacity": 0.5, 
+            "gridWidth": 1, 
+            "tickCount": 5 
           }
         },
         "color": {

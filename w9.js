@@ -103,9 +103,9 @@ document.addEventListener('DOMContentLoaded', function() {
         totalCarbs += parseFloat(itemData.Carbohydrate || 0);
       }
     });
-  
+    
+    const cal = {nutrient: "Calories (kcal)", value: totalCalories};
     const combinedData = [
-      {nutrient: "Calories (kcal)", value: totalCalories},
       {nutrient: "Salt (g)", value: totalSalt},
       {nutrient: "Sugar (g)", value: totalSugar},
       {nutrient: "Fat (g)", value: totalFat},
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('combined-sugar-container').style.display = 'block';
       
       combinedNutritionView.data('nutrition', combinedData).run();
-      combinedCaloriesView.data('nutrition', [combinedData[0]]).run();
+      combinedCaloriesView.data('nutrition', cal).run();
       combinedSaltView.data('nutrition', [combinedData[1]]).run();
       combinedSugarView.data('nutrition', [combinedData[2]]).run();
     }
@@ -386,7 +386,10 @@ document.addEventListener("DOMContentLoaded", function() {
     "Swap out fries for a corn cup, which is lower in fat and adds fiber to your meal.",
     "Watch out for sugary beverages! A medium cup of orange juice contains around 30 grams of sugar—comparable to a soda.",
     "McDonald's Sausage McMuffin with Egg is a balanced breakfast, with under 400 calories and 16 grams of protein, making it a good start to the day.",
-    "Some of the items are high in sodium. Over intake can impact your heart health."
+    "Some of the items are high in sodium. Over intake can impact your heart health.",
+    "Familiarize yourself with the nutritional information available at most fast-food restaurants to make informed choices!",
+    "Aim for meals that include a good mix of protein, healthy fats, and carbohydrates for sustained energy throughout the day.",
+    "Nutrition is important, but don't forget to enjoy your meal and treat yourself occasionally!"
   ];
 
   let currentIndex = 0;
