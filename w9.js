@@ -354,7 +354,7 @@ async function initializeMap() {
 function updateMapPoint(year) {
   const event = timelineEvents[year];
   if (!event) {
-    vegaView.data('null', null);
+    vegaView.data('pointData', []);
     vegaView.run();
     return;
 }
