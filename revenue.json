@@ -49,7 +49,7 @@
           "type": "nominal",
           "scale": {
             "domain": ["Company-operated sales", "Franchised revenues"],
-            "range": ["#FFC300", "#DAF7A6"]
+            "range": ["#FFC300", "#b6e3f1"]
           },
           "legend": null
         }
