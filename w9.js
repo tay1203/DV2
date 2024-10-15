@@ -1,3 +1,5 @@
+const { description } = require("commander");
+
 var vg_1 = "w9.json";
 vegaEmbed("#map", vg_1).then(function(result){
 }).catch(console.error);
@@ -302,13 +304,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Timeline event coordinates data
 const timelineEvents = {
-  "1940": { lat: 34.1083, lng: -117.2898, description: "First McDonald's in San Bernardino, California" },
-  "1953": { lat: 33.4484, lng: -112.0740, description: "First franchise in Phoenix, Arizona" },
+  "1940": { lat: 33.1083, lng: -115.2898, description: "First McDonald's in San Bernardino, California" },
+  "1953": { lat: 33.4484, lng: -110.0740, description: "First franchise in Phoenix, Arizona" },
   "1955": { lat: 42.0334, lng: -87.8834, description: "Ray Kroc's first franchise in Des Plaines, Illinois" },
-  "1967": { lat: 49.2827, lng: -123.1207, description: "First international restaurant in British Columbia" },
-  "1971": { lat: 31.5455, lng: -110.2773, description: "First drive-thru in Sierra Vista, Arizona" },
+  "1963": { lat: 42.0334, lng: -84.8834, description: "The first Ronald McDonald character appears in Washington, D.C." },
+  "1967": { lat: 49.2827, lng: -125.1207, description: "First international restaurant in British Columbia" },
+  "1971": { lat: 31.5455, lng: -110.3773, description: "First drive-thru in Sierra Vista, Arizona" },
   "1982": { lat: 3.1478, lng: 101.7137, description: "First Malaysian restaurant in Bukit Bintang" },
-  "1990": { lat: 55.7558, lng: 37.6173, description: "First Soviet Union restaurant in Moscow" }
+  "1990": { lat: 56.7558, lng: 37.6173, description: "First Soviet Union restaurant in Moscow" },
+  "1993": { lat: -37.8136, lng: 144.9631, description: "First McCafe in Melbourne, Australia" }
 };
 
 let vegaView;
@@ -349,7 +353,11 @@ async function initializeMap() {
 // Function to update the point on the map
 function updateMapPoint(year) {
   const event = timelineEvents[year];
-  if (!event) return;
+  if (!event) {
+    vegaView.data('null', null);
+    vegaView.run();
+    return;
+}
 
   // Update the points layer with new data
   const pointData = [{
